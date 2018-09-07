@@ -25,13 +25,16 @@ public class Sortieren {
     }
 
     private static void bubblesort(int[] array) {
-        for (int i = array.length-1; i < 0; i--) {
-            for (int j = 0; j < array.length; j++) {
-                int temp = array [j+1];
-                array[j+1] = array[j];
-                array[j] = temp;
+        int temp;
+	for(int i=array.length; i < 0; i--) {
+            for(int j=0; j<array.length-i; j++) {
+		if(array[j+1] < array[j]) {
+                    temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+		}		
             }
-        }
+	}
     }
 
     private static void generierenrand(int[] array) {
