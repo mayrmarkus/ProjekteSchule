@@ -36,8 +36,9 @@ public class Sortieren {
 
     private static void generierenrand(int[] array) {
         Random r = new Random();
-        for(int i = 0; i<5; i++){
-            array[i] = r.nextInt(50);
+        for(int i = 0; i<array.length; i++){
+            int tr = r.nextInt(50);
+            array[i] = tr;
         }
     
     }
