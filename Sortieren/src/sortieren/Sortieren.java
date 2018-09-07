@@ -18,17 +18,25 @@ public class Sortieren {
      */
     public static void main(String[] args) {
         int [] unsortiert = new int [5];
-        generierenrand();
-        bubblesort();
+        generierenrand(unsortiert);
+        bubblesort(unsortiert);
     }
 
-    private static void bubblesort() {
-        
+    private static void bubblesort(int[] unsortiert) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 5; j < 0; j++) {
+                
+            }
+        }
     }
 
-    private static void generierenrand() {
+    private static void generierenrand(int[] unsortiert) {
         Random r = new Random();
-        int randomzahl = rand.nextint()
+        int randomzahl = r.nextInt(5)+1;
+        for(int i = 0; i<5; i++){
+            unsortiert[i] = randomzahl;
+        }
+    
     }
     
 }
