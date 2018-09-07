@@ -17,27 +17,46 @@ public class Sortieren {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int [] unsortiert = new int [5];
-        generierenrand(unsortiert);
-        bubblesort(unsortiert);
+        int [] array = new int [10];
+        generierenrand(array);
+        arrayausgabe(array);
+        bubblesort(array);
+        arraysortausgabe(array);
     }
 
-    private static void bubblesort(int[] unsortiert) {
-        int temp;
-        for (int i = 5; i < 0; i--) {
-            for (int j = 0; j < 5; j++) {
-                
+    private static void bubblesort(int[] array) {
+        for (int i = array.length-1; i < 0; i--) {
+            for (int j = 0; j < array.length; j++) {
+                int temp = array [j+1];
+                array[j+1] = array[j];
+                array[j] = temp;
             }
         }
     }
 
-    private static void generierenrand(int[] unsortiert) {
+    private static void generierenrand(int[] array) {
         Random r = new Random();
-        int randomzahl = r.nextInt(5)+1;
         for(int i = 0; i<5; i++){
-            unsortiert[i] = randomzahl;
+            array[i] = r.nextInt(50);
         }
     
     }
-    
-}
+
+    private static void arrayausgabe(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array.length);
+            if(i!=array.length-1)
+                System.out.print(", ");
+        }
+        System.out.println("");
+    }
+
+    private static void arraysortausgabe(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array.length);
+            if(i!=array.length-1)
+                System.out.print(", ");
+        }
+        System.out.println("");
+    }
+    }
