@@ -18,12 +18,20 @@ public class Flussdiagramm {
      */
     public static void main(String[] args) {
         int n = Integer.parseInt(JOptionPane.showInputDialog("Geben sie eine zahl ein!"));
-        for(;;){
+        int t = 1;
+        int p = 3;
         if(n>=2)
             System.out.println("2");
-        else
-            break;    
-        }   
+
+            while(!(p>n)){
+                t+=2;
+                if(p%t==0 || t*t>p){
+                    if(t*t>p)
+                        System.out.println(p);
+                    
+                        p+=2;
+                        t=1;
+                }
+        }      
     }
-    
 }
