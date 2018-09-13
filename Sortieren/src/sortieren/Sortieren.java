@@ -21,6 +21,7 @@ public class Sortieren {
         generierenrand(array);
         arrayausgabe(array);
         bubblesort(array);
+        arrayausgabe(array);
         insertionsort(array);
     }
 
@@ -60,10 +61,16 @@ public class Sortieren {
         System.out.println("");
     }
 
+
     private static void insertionsort(int[] array) {
+        int temp, a;
         for (int i = 0; i < array.length; i++) {
-            if(array[i+1]<array[i])
-                System.out.println(""); 
+            temp = array[i];
+            a=i;
+            while(a>=i && array[a-1] > temp){
+                array[a] = array[a-1];
+                
+            }
         }
     }
     }
