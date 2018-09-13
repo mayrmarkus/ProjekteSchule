@@ -9,6 +9,7 @@ package network;
  *
  * @author Markus_Mayr
  */
-public class Layer implements Data{
-    
+public interface Layer{
+    public Data encapsulate(Data d);
+    public Data decapsulate(Data d);
 }

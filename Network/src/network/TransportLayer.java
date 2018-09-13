@@ -10,5 +10,15 @@ package network;
  * @author Markus_Mayr
  */
 public class TransportLayer implements Layer{
+
+    @Override
+    public Data encapsulate(Data d) {
+        return new Packet();
+    }
+
+    @Override
+    public Data decapsulate(Data d) {
+        return null;
+    }
     
 }

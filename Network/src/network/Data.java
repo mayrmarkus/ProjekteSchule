@@ -9,6 +9,6 @@ package network;
  *
  * @author Markus_Mayr
  */
-public class Data {
+public interface Data {
     
 }
