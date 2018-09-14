@@ -67,12 +67,12 @@ public class Sortieren {
     private static void insertionsort(int[] array) {
         for (int i=1; i<array.length; i++){
             int temp = array[i];
-            int j = i-1;
-            while (j>=0 && array[j] > temp){
-                array[j+1] = array[j];
+            int j = i;
+            while (j>0 && array[j] > temp){
+                array[j] = array[j-1];
                 j = j-1;
             }
-            array[j+1] = temp;
+            array[j] = temp;
         }
     }
 
