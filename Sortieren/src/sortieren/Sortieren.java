@@ -23,6 +23,7 @@ public class Sortieren {
         bubblesort(array);
         arrayausgabe(array);
         insertionsort(array);
+        arrayausgabe(array);
     }
 
     private static void bubblesort(int[] array) {
@@ -63,14 +64,15 @@ public class Sortieren {
 
 
     private static void insertionsort(int[] array) {
-        int temp, a;
-        for (int i = 0; i < array.length; i++) {
-            temp = array[i];
-            a=i;
-            while(a>=i && array[a-1] > temp){
-                array[a] = array[a-1];
-                
+        int n = array.length;
+        for (int i=1; i<n; ++i){
+            int temp = array[i];
+            int j = i-1;
+            while (j>=0 && array[j] > temp){
+                array[j+1] = array[j];
+                j = j-1;
             }
+            array[j+1] = temp;
         }
     }
-    }
+}
