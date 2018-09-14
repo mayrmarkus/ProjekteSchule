@@ -20,19 +20,18 @@ public class Sortieren {
         int[] array = new int[10];
         generierenrand(array);
         arrayausgabe(array);
+        
         bubblesort(array);
         arrayausgabe(array);
+        
         insertionsort(array);
         arrayausgabe(array);
     }
 
     private static void bubblesort(int[] array) {
         for(int i=array.length -1; i>0; i--){
-        
             for(int j=0; j<array.length-1; j++ ){
-            
                 if(array[j]>array[j+1]){
-                
                     int temp = array[j+1];
                     array[j+1] = array[j];
                     array[j] = temp;
@@ -65,7 +64,7 @@ public class Sortieren {
 
     private static void insertionsort(int[] array) {
         int n = array.length;
-        for (int i=1; i<n; ++i){
+        for (int i=1; i<n; i++){
             int temp = array[i];
             int j = i-1;
             while (j>=0 && array[j] > temp){
