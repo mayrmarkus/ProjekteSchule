@@ -17,7 +17,7 @@ public class Sortieren {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] array = new int[10];
+        int[] array = new int[500];
         generierenrand(array);
         arrayausgabe(array);
         
@@ -26,6 +26,8 @@ public class Sortieren {
         
         insertionsort(array);
         arrayausgabe(array);
+        
+        timing(array);
     }
 
     private static void bubblesort(int[] array) {
@@ -46,7 +48,7 @@ public class Sortieren {
         Random rand = new Random();
         
         for(int i=0;i<array.length;i++){
-            array[i]= rand.nextInt(50);
+            array[i]= rand.nextInt(1000);
         }
     
     }
@@ -63,8 +65,7 @@ public class Sortieren {
 
 
     private static void insertionsort(int[] array) {
-        int n = array.length;
-        for (int i=1; i<n; i++){
+        for (int i=1; i<array.length; i++){
             int temp = array[i];
             int j = i-1;
             while (j>=0 && array[j] > temp){
@@ -73,5 +74,19 @@ public class Sortieren {
             }
             array[j+1] = temp;
         }
+    }
+
+    private static void timing(int[] array) {
+        long vorb = System.nanoTime();
+        bubblesort(array);
+        long nachb = System.nanoTime();
+        System.out.println(nachb-vorb+" Nanosekunden");
+        
+        long vori = System.nanoTime();
+        insertionsort(array);
+        long nachi = System.nanoTime();
+        System.out.println(nachi-vori+" Nanosekunden");
+        
+        System.out.println(nachb-vorb-(nachi-vori)+" Differenz");
     }
 }
