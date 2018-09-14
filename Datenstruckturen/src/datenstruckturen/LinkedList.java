@@ -32,15 +32,33 @@ public class LinkedList {
             temp = temp.getNext();
         }
     }
+    
+    public void deleteNode(Node n){
+        Node temp = first;
+        Node previous = null;
+        while(temp != null){
+            if(n.getZahl() == temp.getZahl()){
+                previous.setNext(temp.getNext());
+            }
+            previous = temp;
+            temp = temp.getNext();
+        }
+    }
 
     public static void main(String[]args){
         Node strat = new Node(888);
         Node m1 = new Node(666);
         Node m2 = new Node(444);
+        Node m3 = new Node(222);
+        Node m4 = new Node(000);
         
         LinkedList ll = new LinkedList(strat);
         ll.addNode(m1);
         ll.addNode(m2);
+        ll.addNode(m3);
+        ll.addNode(m4);
+        
+        ll.deleteNode(m1);
         
         ll.printLinkedList();
     }
