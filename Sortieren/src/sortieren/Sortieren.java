@@ -80,12 +80,12 @@ public class Sortieren {
         long vorb = System.nanoTime();
         bubblesort(array);
         long nachb = System.nanoTime();
-        System.out.println((nachb-vorb)/1000.00+" Millisekunden");
+        System.out.println((nachb-vorb)/1000.00+" Millisekunden (Bubblesort)");
         
         long vori = System.nanoTime();
         insertionsort(array);
         long nachi = System.nanoTime();
-        System.out.println((nachi-vori)/1000.00+" Millisekunden");
+        System.out.println((nachi-vori)/1000.00+" Millisekunden (Insertionsort)");
         
         System.out.println((nachb-vorb-(nachi-vori))/1000.00+" Differenz");
     }
