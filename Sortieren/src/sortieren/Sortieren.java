@@ -87,6 +87,6 @@ public class Sortieren {
         long nachi = System.nanoTime();
         System.out.println((nachi-vori)/1000.00+" Millisekunden (Insertionsort)");
         
-        System.out.println((nachb-vorb-(nachi-vori))/1000.00+" Differenz");
+        System.out.println((nachb-vorb-(nachi-vori))/1000.00+" Differenz (Bubblesort - Insertionsort)");
     }
 }
