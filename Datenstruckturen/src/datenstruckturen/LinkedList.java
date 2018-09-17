@@ -44,6 +44,32 @@ public class LinkedList {
             temp = temp.getNext();
         }
     }
+    
+    public void addBeginning(Node n){
+        n.setNext(first);
+        first = n;
+    }
+    
+    public void deleteNodePlace(int a, Node n){
+        Node temp = first;
+        Node previous = null;
+        for(int i = 1; i<=a; i++){
+            previous = temp;
+            temp = temp.getNext();
+        }
+        previous.setNext(temp.getNext());
+    }
+    
+    public void addNodePlace(int a, Node n){
+        Node temp = first;
+        Node previous = null;
+        for (int i = 1; i <=a; i++) {
+            previous = temp;
+            temp = temp.getNext();
+        }
+        temp.setNext(n);    
+        }
+        
 
     public static void main(String[]args){
         Node strat = new Node(888);
