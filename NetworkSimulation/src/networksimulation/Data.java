@@ -9,13 +9,28 @@ package networksimulation;
  *
  * @author Martin
  */
-public abstract class Data {
-    protected String realdata;
-    protected String header;
+public class Data {
+    private String realdata;
+    private String header;
 
     public String getFullData() {
-        return header + realdata;
+        return realdata+header;
     }
-    
+
+    public String getRealdata() {
+        return realdata;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setRealdata(String realdata) {
+        this.realdata = realdata;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
     
 }

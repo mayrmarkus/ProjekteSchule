@@ -9,19 +9,20 @@ package networksimulation;
  *
  * @author Martin
  */
-public class TransportLayer implements Layer{
+public class TransportLayer{
+    public static final int HEADERLENGTH = 4;
 
-    @Override
-    public Data encapsulate(Data d) {
-        Packet p = new Packet();
-        p.realdata = d.getFullData();
-        p.header = "IP-Adress";
-        return p;
+    public Segment encapsulate(Data d) {
+        Segment s = new Segment();
+        s.setRealdata(d.getRealdata()+d.getHeader());
+        s.setHeader("01");
+        return s;
     }
 
-    @Override
-    public Data decapsulate(Data d) {
-       return null;
+    public Data decapsulate(Segment s) {
+        Data d = new Data();
+        s.deleteHeader(s.getFullData());
+        return s;
     }
     
 }
