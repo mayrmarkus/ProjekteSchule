@@ -50,7 +50,7 @@ public class LinkedList {
         first = n;
     }
     
-    public void deleteNodePlace(int a, Node n){
+    public void deleteNodePlace(int a){
         Node temp = first;
         Node previous = null;
         for(int i = 1; i<=a; i++){
@@ -70,13 +70,22 @@ public class LinkedList {
         temp.setNext(n);    
         }
         
+    public int nodeSize(){
+        int length = 0;
+        Node temp = first;
+        while(temp != null){
+            temp = temp.getNext();
+            length++;
+        }
+        return length;
+    }
 
     public static void main(String[]args){
         Node strat = new Node(888);
         Node m1 = new Node(666);
         Node m2 = new Node(444);
         Node m3 = new Node(222);
-        Node m4 = new Node(000);
+        Node m4 = new Node(100);
         
         LinkedList ll = new LinkedList(strat);
         ll.addNode(m1);
@@ -84,9 +93,10 @@ public class LinkedList {
         ll.addNode(m3);
         ll.addNode(m4);
         
-        ll.deleteNode(m1);
-        
+        ll.deleteNodePlace(1);
         ll.printLinkedList();
+        
+        System.out.println(ll.nodeSize());
     }
     
 }
