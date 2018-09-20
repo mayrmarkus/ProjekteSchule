@@ -51,6 +51,10 @@ public class LinkedList {
     }
     
     public void deleteNodePlace(int a){
+        if(a == 0){
+            first = first.getNext();
+        }else{
+            
         Node temp = first;
         Node previous = null;
         for(int i = 1; i<=a; i++){
@@ -58,6 +62,7 @@ public class LinkedList {
             temp = temp.getNext();
         }
         previous.setNext(temp.getNext());
+        }
     }
     
     public void addNodePlace(int a, Node n){
@@ -93,7 +98,7 @@ public class LinkedList {
         ll.addNode(m3);
         ll.addNode(m4);
         
-        ll.deleteNodePlace(1);
+        ll.deleteNodePlace(0);
         ll.printLinkedList();
         
         System.out.println(ll.nodeSize());
