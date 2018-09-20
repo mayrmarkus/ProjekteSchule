@@ -7,11 +7,17 @@ package networksimulation;
 
 /**
  *
- * @author Martin
+ * @author Markus
  */
 public class Segment extends Data{
     private String realdata;
     private String header;
+    private String fullData;
+
+    public void setFullData(String fullData) {
+        this.fullData = fullData;
+    }
+    
 
     public String getFullData() {
         return realdata + header;
@@ -39,6 +45,17 @@ public class Segment extends Data{
             z+=toString[i];
         }
         return z;
+    }
+    
+     public Packet encapsulate(TransportLayer t) {
+        Packet p = new Packet();
+        p.setRealdata(realdata+header);
+        return p;
+    }
+
+    public Packet decapsulate(Packet p) {
+        p.deleteHeader(p.getFullData());
+        return p;
     }
 
 }

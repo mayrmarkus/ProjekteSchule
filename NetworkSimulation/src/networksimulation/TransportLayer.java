@@ -7,15 +7,38 @@ package networksimulation;
 
 /**
  *
- * @author Martin
+ * @author Markus
  */
 public class TransportLayer{
-    public static final int HEADERLENGTH = 4;
+    private String realdata;
+    private String header;
+
+    public String getFullData(){
+        return realdata + header;
+    }
+    
+    public String getRealdata() {
+        return realdata;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setRealdata(String realdata) {
+        Data d = new Data();
+        this.realdata = d.getRealdata();
+        System.out.println(d.getRealdata());
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
 
     public Segment encapsulate(Data d) {
         Segment s = new Segment();
-        s.setRealdata(d.getRealdata()+d.getHeader());
-        s.setHeader("01");
+        s.setRealdata(realdata + header);
+        System.out.println(realdata + header);
         return s;
     }
 

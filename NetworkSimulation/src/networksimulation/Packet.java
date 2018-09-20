@@ -9,6 +9,37 @@ package networksimulation;
  *
  * @author Martin
  */
-public class Packet extends Data{
+public class Packet{
+    private String realdata;
+    private String header;
+
+    public String getFullData(){
+        return realdata + header;
+    }
     
+    public String getRealdata() {
+        return realdata;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setRealdata(String realdata) {
+        this.realdata = realdata;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+    
+    
+    public String deleteHeader(String s){
+    char[] toString = s.toCharArray();
+    String z="";
+        for (int i = 0; i < toString.length-2; i++) {
+            z+=toString[i];
+        }
+        return z;
+    }
 }

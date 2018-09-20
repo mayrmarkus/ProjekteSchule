@@ -15,7 +15,20 @@ public class NetworkSimulation {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Data d = new Data();
+        TransportLayer t = new TransportLayer();
+        Segment s = new Segment();
+        Packet p = new Packet();
+        
+        d.setRealdata("Data");
+        
+        t.setHeader("00");
+        s.setHeader("01");
+        p.setHeader("02");
+        //t.encapsulate(d);
+        System.out.println(t.getFullData());
+        
+        System.out.println(s.getFullData());
     }
     
 }
