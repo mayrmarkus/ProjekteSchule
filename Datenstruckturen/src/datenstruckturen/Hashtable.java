@@ -11,7 +11,5 @@ package datenstruckturen;
  */
 public class Hashtable {
     
-    public int algorithmus(){
-        return null;
-    }
+    
 }
