@@ -104,17 +104,18 @@ public class LinkedList {
             if(count == a)
                 return temp;
             temp = temp.getNext();
+            count++;
         }
         return temp;
     }
     
     public void sort(){
-        for(int i=nodeSize() -1; i>0; i--){
-            for(int j=0; j<nodeSize()-1; j++ ){
-                if(stelleX(j)>stelleX(j+1)){
-                    int temp = stelleX(j+1);
-                    stelleX(j+1) = stelleX(j);
-                    stelleX(j) = temp;
+        for(int i=nodeSize()-1; i>0; i--){
+            for(int j=0; j < nodeSize()-1; j++ ){
+                if(stelleX(j).getZahl() > stelleX(j+1).getZahl()){
+                    int temp = stelleX(j+1).getZahl();
+                    stelleX(j+1).setZahl(stelleX(j).getZahl());
+                    stelleX(j).setZahl(temp);
                 }
             
             }
@@ -140,7 +141,8 @@ public class LinkedList {
         ll.addNodePlace(20, m5);
         //ll.deleteNodePlace(0);
         ll.printLinkedList();
-        
+        ll.sort();
+        ll.printLinkedList();
         System.out.println(ll.nodeSize());
     }
     
