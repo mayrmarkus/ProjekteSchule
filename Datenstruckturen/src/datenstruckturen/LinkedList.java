@@ -10,8 +10,10 @@ package datenstruckturen;
  * @author Markus_Mayr
  */
 public class LinkedList {
-    
-    private Node first;
+    /**
+     * Is the first Node(links to others)
+     */
+    public Node first;
     
     public LinkedList(Node n) {
         first = n;
@@ -29,7 +31,7 @@ public class LinkedList {
         Node temp = first;
         while(temp != null){
             System.out.print(temp.getZahl());
-            System.out.print(", ");
+            System.out.print("\t ");
             temp = temp.getNext();
         }
         System.out.println("");
@@ -122,30 +124,5 @@ public class LinkedList {
         
         }
     }
-
-            
-
-    public static void main(String[]args){
-        Node strat = new Node(888);
-        Node m1 = new Node(666);
-        Node m2 = new Node(444);
-        Node m3 = new Node(222);
-        Node m4 = new Node(100);
-        Node m5 = new Node(5555);
-        
-        LinkedList ll = new LinkedList(strat);
-        ll.addNode(m1);
-        ll.addNode(m2);
-        ll.addNode(m3);
-        ll.addNode(m4);
-        
-        ll.addNodePlace(20, m5);
-        //ll.deleteNodePlace(0);
-        ll.printLinkedList();
-        ll.sort();
-        ll.printLinkedList();
-        System.out.println(ll.nodeSize());
-    }
     
 }
-
