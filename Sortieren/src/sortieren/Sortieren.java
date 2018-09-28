@@ -18,21 +18,30 @@ public class Sortieren {
      */
     public static void main(String[] args) {
         Sortieren a = new Sortieren();
-        int[] array = new int[10];
-        a.generierenrand(array);
+        int[] array = new int[100];
+        int[] refArray = new int[array.length];
+        
+        System.out.print("Unsortet:\t");
+        a.generierenrand(array, refArray);
         a.arrayausgabe(array);
 
+        System.out.print("Bubblesort:\t");
         a.bubblesort(array);
         a.arrayausgabe(array);
+        a.refArray(array, refArray);
 
+        System.out.print("Insertionsort:\t");
         a.insertionsort(array);
         a.arrayausgabe(array);
+        a.refArray(array, refArray);
         
+        System.out.print("Quicksort:\t");
         int high = array.length - 1;
         int low = 0;
 
         a.quicksort(array, low, high);
         a.arrayausgabe(array);
+        a.refArray(array, refArray);
 
         a.timing(array);
     }
@@ -49,11 +58,12 @@ public class Sortieren {
         }
     }
 
-    private void generierenrand(int[] array) {
+    private void generierenrand(int[] array, int[] refArray) {
         Random rand = new Random();
 
         for (int i = 0; i < array.length; i++) {
-            array[i] = rand.nextInt(100);
+            array[i] = rand.nextInt(1000);
+            refArray[i] = array[i];
         }
 
     }
@@ -69,29 +79,42 @@ public class Sortieren {
     }
 
     private void insertionsort(int[] array) {
-        for (int i = 1; i < array.length; i++) {
+         for (int i = 1; i < array.length; i++) {
             int temp = array[i];
-            int j = i;
-            while (j > 0 && array[j] > temp) {
-                array[j] = array[j - 1];
+            int j = i-1;
+            while (j >= 0 && array[j] > temp) {
+                array[j+1] = array[j];
                 j = j - 1;
             }
-            array[j] = temp;
+            array[j+1] = temp;
         }
     }
 
     private void timing(int[] array) {
+        System.out.println("");
+        
         long vorb = System.nanoTime();
         bubblesort(array);
         long nachb = System.nanoTime();
         System.out.println((nachb - vorb) / 1000.00 + " Millisekunden (Bubblesort)");
-
+        refArray(array, array);
+        
         long vori = System.nanoTime();
         insertionsort(array);
         long nachi = System.nanoTime();
         System.out.println((nachi - vori) / 1000.00 + " Millisekunden (Insertionsort)");
-
+        refArray(array, array);
+        
+        long vorq = System.nanoTime();
+        insertionsort(array);
+        long nachq = System.nanoTime();
+        System.out.println((nachq - vorq) / 1000.00 + " Millisekunden (Quicksort)");
+        refArray(array, array);
+        
+        System.out.println("");
         System.out.println((nachb - vorb - (nachi - vori)) / 1000.00 + " Differenz (Bubblesort - Insertionsort)");
+        System.out.println((nachb - vorb - (nachq - vorq)) / 1000.00 + " Differenz (Bubblesort - Quicksort)");
+        System.out.println((nachi - vori - (nachq - vorq)) / 1000.00 + " Differenz (Insertionsort - Quicksort)");
     }
 
     void quicksort(int[] a, int low, int high) {
@@ -113,6 +136,12 @@ public class Sortieren {
 
             quicksort(a, low, i - 1);
             quicksort(a, i + 1, high);
+        }
+    }
+
+    private void refArray(int[] array, int[] refArray) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = refArray[i];
         }
     }
 
