@@ -17,7 +17,7 @@ public class Sortieren {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] array = new int[500];
+        int[] array = new int[10];
         generierenrand(array);
         arrayausgabe(array);
         
@@ -27,6 +27,11 @@ public class Sortieren {
         insertionsort(array);
         arrayausgabe(array);
         
+        int pivot = array[array.length-1];
+        int a = array.length-1;
+        
+        quicksort(array, a, pivot);
+        arrayausgabe(array);
         timing(array);
     }
 
@@ -48,7 +53,7 @@ public class Sortieren {
         Random rand = new Random();
         
         for(int i=0;i<array.length;i++){
-            array[i]= rand.nextInt(1000);
+            array[i]= rand.nextInt(100);
         }
     
     }
@@ -88,5 +93,47 @@ public class Sortieren {
         System.out.println((nachi-vori)/1000.00+" Millisekunden (Insertionsort)");
         
         System.out.println((nachb-vorb-(nachi-vori))/1000.00+" Differenz (Bubblesort - Insertionsort)");
+    }
+
+    private static void quicksort(int[] array, int a, int pivot) {
+        int temp = 0;
+        for (int j = a-1; j > 0; j--) {
+            for (int i = 0; i < a; i++) {
+                if(i>=j){
+                    if(a==1)
+                        quicksorthoch(array, a, pivot);
+                    temp = pivot; 
+                    array[j] = pivot;
+                    array[a] = temp;
+                    pivot = array[j-1]; a = j-1;
+                    quicksort(array, a, pivot);
+                }
+                if(array[i] > pivot){
+                    temp = array[i];
+                    array[i] = array[j];
+                }
+            }
+        }
+    }
+
+    private static void quicksorthoch(int[] array, int a, int pivot) {
+       int temp = 0;
+        for (int j = a-1; j > 0; j--) {
+            for (int i = 0; i < a; i++) {
+                if(i>=j){
+                    if(a==1)
+                        arrayausgabe(array);
+                    temp = pivot; 
+                    array[j] = pivot;
+                    array[a] = temp;
+                    pivot = array[array.length-1]; a = array.length-1;
+                    quicksort(array, a, pivot);
+                }
+                if(array[i] > pivot){
+                    temp = array[i];
+                    array[i] = array[j];
+                }
+            }
+        }
     }
 }
