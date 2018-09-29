@@ -22,6 +22,6 @@ public class Rekursion {
         String b = "Lagerregal";
         System.out.println(n.palindrom(b.toLowerCase(), 0, b.length() - 1));
         System.out.println(n.primzahl(157, 2));
-        System.out.println(n.schwer(2130486597));
+        System.out.println(n.schwer(1249537860, 10));
     }
 }

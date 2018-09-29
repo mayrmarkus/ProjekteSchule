@@ -49,16 +49,19 @@ public class Funrek {
     public boolean primzahl(int p, int z){
         if(p == 2 || p == 3)
             return true;
-        if(p % z == 0)
+        if(p % z == 0 || p <=1)
             return false;
         if(p == (z+1))
             return true;
         return primzahl(p, z+1);
     }
     
-    public boolean schwer(int a){
-        if(a/1000000000 % 2 == 0)
-            return true;
+    public boolean schwer(int a, int b){
+        if(a % b == 0){
+            schwer(a/10, b-1);
+            if(b == 2)
+                return true;
+        }
         return false;
     }
 }

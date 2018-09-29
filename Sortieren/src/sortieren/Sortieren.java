@@ -21,7 +21,7 @@ public class Sortieren {
         int[] array = new int[100];
         int[] refArray = new int[array.length];
         
-        System.out.print("Unsortet:\t");
+        System.out.print("Unsorted:\t");
         a.generierenrand(array, refArray);
         a.arrayausgabe(array);
 
