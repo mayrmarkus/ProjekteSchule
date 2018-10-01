@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rekursion;
+package reku2;
 
 /**
  *
  * @author Markus_Mayr
  */
-public class Funrek {
-
+public class FunRek {
+    
     public int fakultaet(int n) {
         if (n == 1) {
             return 1;
