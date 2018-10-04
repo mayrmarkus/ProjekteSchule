@@ -22,7 +22,12 @@ public class Rekursion {
 //        String b = "Lagerregal";
 //        System.out.println(n.palindrom(b.toLowerCase(), 0, b.length() - 1));
 //        System.out.println(n.primzahl(157, 2));
-       // System.out.println(n.schwer(987654320, 10));
+        
+        long a = 1000000000l;
+        long b ;
+        while(a < ){
+            n.schwer(a, 10);    
+        }
         n.bewege('a', 'b', 'c', 5);
     }
 }

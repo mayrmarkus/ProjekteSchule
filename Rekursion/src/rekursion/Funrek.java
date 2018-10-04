@@ -59,16 +59,14 @@ public class Funrek {
         return primzahl(p, z + 1);
     }
 
-//    public boolean schwer(int a, int b){
-//        if(a % b == 0){
-//            schwer(a/10, b-1);
-//            if(b == 2)
-//                return true;
-//        }else{
-//            schwer(a+10, 10);
-//        }
-//        return false;
-//    }
+    public boolean schwer(long a, int b){
+        if(a % b == 0){
+            schwer(a/10, b-1);
+            if(b == 2)
+                return true;
+        }
+        return false;
+    }
     public void bewege(char a, char b, char c, int n) {
         if (n == 1) {
             System.out.println("Lege die oberste Scheibe von "
