@@ -15,7 +15,9 @@ public class UMLtoJava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        BallotCreation a = new BallotCreation();
+        a.createBallot();
+        System.out.println(a.displayBallot());
     }
     
 }

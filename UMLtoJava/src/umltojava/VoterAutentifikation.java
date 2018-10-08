@@ -12,7 +12,7 @@ package umltojava;
 public class VoterAutentifikation {
     private voterPersonalInformation voterPersonalInfo;
     private String voterID;
-    private securePW voterPassword;
+    private SecurePW voterPassword;
 
     public voterPersonalInformation getVoterPersonalInfo() {
         return voterPersonalInfo;
@@ -22,7 +22,7 @@ public class VoterAutentifikation {
         return voterID;
     }
 
-    public securePW getVoterPassword() {
+    public SecurePW getVoterPassword() {
         return voterPassword;
     }
 
@@ -34,7 +34,7 @@ public class VoterAutentifikation {
         this.voterID = voterID;
     }
 
-    public void setVoterPassword(securePW voterPassword) {
+    public void setVoterPassword(SecurePW voterPassword) {
         this.voterPassword = voterPassword;
     }
 }
