@@ -16,12 +16,14 @@ public class Wettbüro {
     private ArrayList<Wette> wettenReceived = new ArrayList<Wette>();
     Rennen race = new Rennen();
     
-    public void quoteBerechnen(){    
+    public double quoteBerechnen(){    
         for (int i = 0; i < race.getTeilnehmerliste().size(); i++) {
             if (race.getTeilnehmerliste().get(i).getName().equals(wettenReceived.get(i).getGewettetSchnecke().getName())) {
                 quote = 10/race.getTeilnehmerliste().get(i).getMaxGesch();
+                quote += wettenReceived.get(i).getBetrag();
             }
         }
+        return quote;
     }
     
     public void wetteAnehmen(Rennschnecke schneckenNamen, double wettEinsatz, String spieler){
@@ -38,12 +40,21 @@ public class Wettbüro {
         for (int i = 0; i < wettenReceived.size(); i++) {
             temp += "Spieler: " + wettenReceived.get(i).getSpieler() + ", Schneckennamen: " + 
                     wettenReceived.get(i).getGewettetSchnecke().getName() + ", Wetteinsatz: " + 
-                    wettenReceived.get(i).getBetrag() + "€";
+                    wettenReceived.get(i).getBetrag() + "€\n";
         }
         return temp + "\n";
     }
     
-    public void rennenDurchfueren(){
-        
+    public double rennenDurchfueren(){
+        for (int i = 0; i < race.getTeilnehmerliste().size(); i++) {
+            for (int j = 0; j < wettenReceived.size(); j++) {
+                if (race.ermittleGewinner()) {
+                    if(race.getTeilnehmerliste().get(i).getWegDone() >= race.getStrecke())
+                        wettenReceived.get(i).setBetrag(quoteBerechnen());
+                    return wettenReceived.get(i).getBetrag();
+                }
+            }
+        }
+        return 0.00;
     }
 }

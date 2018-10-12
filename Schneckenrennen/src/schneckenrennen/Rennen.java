@@ -18,6 +18,10 @@ public class Rennen {
     private ArrayList<Rennschnecke> teilnehmerliste = new ArrayList<Rennschnecke>();
     private double strecke;
 
+    public double getStrecke() {
+        return strecke;
+    }
+
     public ArrayList<Rennschnecke> getTeilnehmerliste() {
         return teilnehmerliste;
     }
