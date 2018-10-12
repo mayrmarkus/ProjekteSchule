@@ -12,7 +12,7 @@ package schneckenrennen;
 public class Wette {
     private String spieler;
     private double betrag;
-    private Rennschnecke gewSchnecke;
+    private Rennschnecke gewettetSchnecke;
 
     public void setSpieler(String spieler) {
         this.spieler = spieler;
@@ -22,11 +22,19 @@ public class Wette {
         this.betrag = betrag;
     }
 
-    public void setGewSchnecke(Rennschnecke gewSchnecke) {
-        this.gewSchnecke = gewSchnecke;
+    public void setGewettetSchnecke(Rennschnecke gewSchnecke) {
+        this.gewettetSchnecke = gewSchnecke;
     }
     
-    public Rennschnecke getGewSchnecke() {
-        return gewSchnecke;
+    public Rennschnecke getGewettetSchnecke() {
+        return gewettetSchnecke;
+    }
+
+    public String getSpieler() {
+        return spieler;
+    }
+
+    public double getBetrag() {
+        return betrag;
     }
 }

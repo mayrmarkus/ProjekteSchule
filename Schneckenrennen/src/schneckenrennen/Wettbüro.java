@@ -18,16 +18,32 @@ public class Wettbüro {
     
     public void quoteBerechnen(){    
         for (int i = 0; i < race.getTeilnehmerliste().size(); i++) {
-            if (race.getTeilnehmerliste().get(i).getName().equals(wettenReceived.get(i).getGewSchnecke().getName())) {
+            if (race.getTeilnehmerliste().get(i).getName().equals(wettenReceived.get(i).getGewettetSchnecke().getName())) {
                 quote = 10/race.getTeilnehmerliste().get(i).getMaxGesch();
             }
         }
     }
     
-    public void wetteAnehmen(String schneckenNamen, double wettEinsatz, String spieler){
+    public void wetteAnehmen(Rennschnecke schneckenNamen, double wettEinsatz, String spieler){
+        Wette w = new Wette();
+        w.setBetrag(wettEinsatz);
+        w.setGewettetSchnecke(schneckenNamen);
+        w.setSpieler(spieler);
+        wettenReceived.add(w);
+    }
+    
+    @Override
+    public String toString(){
+        String temp = "";
         for (int i = 0; i < wettenReceived.size(); i++) {
-            wettenReceived.get(i).setBetrag(wettEinsatz);
-            wettenReceived.get(i).setGewSchnecke(schneckenNamen);
+            temp += "Spieler: " + wettenReceived.get(i).getSpieler() + ", Schneckennamen: " + 
+                    wettenReceived.get(i).getGewettetSchnecke().getName() + ", Wetteinsatz: " + 
+                    wettenReceived.get(i).getBetrag() + "€";
         }
+        return temp + "\n";
+    }
+    
+    public void rennenDurchfueren(){
+        
     }
 }

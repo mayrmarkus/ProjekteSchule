@@ -18,12 +18,18 @@ public class Schneckenrennen {
         Rennschnecke a1 = new Rennschnecke("Hallo", "Schwarz", 10);
         Rennschnecke a2 = new Rennschnecke("HI", "Schwarz", 15);
         Rennschnecke a3 = new Rennschnecke("Morgen", "Weiss", 5);
+        
         Rennen b = new Rennen("Sepp", 20, 2);
         b.addRennschnecke(a1);
         b.addRennschnecke(a2);
         b.addRennschnecke(a3);
         
+        Wettbüro w = new Wettbüro();
+        w.wetteAnehmen(a2, 20, "Tutzer");
+        
         System.out.println(b.toString());
         b.durchführen();
+        
+        System.out.println(w.toString());
     }
 }
