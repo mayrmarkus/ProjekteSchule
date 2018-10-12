@@ -71,9 +71,10 @@ public class Rennen {
         }
     }
     
-    public void durchführen(){
+    public boolean durchführen(){
         do{
             lasseKriechen();
         }while(!ermittleGewinner());
+        return true;
     }
 }

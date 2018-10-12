@@ -32,8 +32,6 @@ public class Schneckenrennen {
         w.wetteAnehmen(a3, 60, "Maxi");
         
         System.out.println(b.toString());
-        b.durchführen();
-        
         System.out.println(w.toString());
         System.out.println(w.rennenDurchfueren());
     }

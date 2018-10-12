@@ -46,9 +46,9 @@ public class Wettbüro {
     }
     
     public double rennenDurchfueren(){
-        for (int i = 0; i < race.getTeilnehmerliste().size(); i++) {
-            for (int j = 0; j < wettenReceived.size(); j++) {
-                if (race.ermittleGewinner()) {
+        if(race.durchführen()){
+            for (int i = 0; i <= race.getTeilnehmerliste().size(); i++) {
+                for (int j = 0; j <= wettenReceived.size(); j++) {    
                     if(race.getTeilnehmerliste().get(i).getWegDone() >= race.getStrecke())
                         wettenReceived.get(i).setBetrag(quoteBerechnen());
                     return wettenReceived.get(i).getBetrag();
