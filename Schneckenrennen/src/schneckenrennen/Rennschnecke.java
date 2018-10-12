@@ -17,6 +17,10 @@ public class Rennschnecke {
     private int maxGesch;
     private double wegDone;
 
+    public int getMaxGesch() {
+        return maxGesch;
+    }
+    
     public String getName() {
         return name;
     }
