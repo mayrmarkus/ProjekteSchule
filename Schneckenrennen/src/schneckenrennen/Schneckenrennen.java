@@ -27,12 +27,13 @@ public class Schneckenrennen {
         b.addRennschnecke(a4);
         
         Wettbüro w = new Wettbüro();
-        w.wetteAnehmen(a2, 20, "Tutzer");
-        w.wetteAnehmen(a4, 9000, "Christoph");
-        w.wetteAnehmen(a3, 60, "Maxi");
+        w.wetteAnnehmen(a2, 20, "Tutzer");
+        w.wetteAnnehmen(a4, 9000, "Christoph");
+        w.wetteAnnehmen(a3, 60, "Maxi");
+        
         
         System.out.println(b.toString());
         System.out.println(w.toString());
-        System.out.println(w.rennenDurchfueren());
+        System.out.println(w.rennenDurchfuehren());
     }
 }

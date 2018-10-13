@@ -26,7 +26,7 @@ public class Wettbüro {
         return quote;
     }
     
-    public void wetteAnehmen(Rennschnecke schneckenNamen, double wettEinsatz, String spieler){
+    public void wetteAnnehmen(Rennschnecke schneckenNamen, double wettEinsatz, String spieler){
         Wette w = new Wette();
         w.setBetrag(wettEinsatz);
         w.setGewettetSchnecke(schneckenNamen);
@@ -45,11 +45,15 @@ public class Wettbüro {
         return temp + "\n";
     }
     
-    public double rennenDurchfueren(){
+    public double rennenDurchfuehren(){
         if(race.durchführen()){
+            System.out.println("0");
             for (int i = 0; i <= race.getTeilnehmerliste().size(); i++) {
+                System.out.println("1");
                 for (int j = 0; j <= wettenReceived.size(); j++) {    
+                    System.out.println("2");
                     if(race.getTeilnehmerliste().get(i).getWegDone() >= race.getStrecke())
+                        System.out.println("3");
                         wettenReceived.get(i).setBetrag(quoteBerechnen());
                     return wettenReceived.get(i).getBetrag();
                 }
