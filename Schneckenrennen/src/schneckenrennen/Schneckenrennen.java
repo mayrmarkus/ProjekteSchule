@@ -17,23 +17,21 @@ public class Schneckenrennen {
     public static void main(String[] args) {
         Rennschnecke a1 = new Rennschnecke("Hallo", "Schwarz", 10);
         Rennschnecke a2 = new Rennschnecke("HI", "Schwarz", 15);
-        Rennschnecke a3 = new Rennschnecke("Morgen", "Weiss", 5);
-        Rennschnecke a4 = new Rennschnecke("Christoph", "sdf", 20);
         
-        Rennen b = new Rennen("Sepp", 200, 2);
-        b.addRennschnecke(a1);
-        b.addRennschnecke(a2);
-        b.addRennschnecke(a3);
-        b.addRennschnecke(a4);
+        Rennen r = new Rennen("Sepp", 200, 2);
+        r.addRennschnecke(a1);
+        r.addRennschnecke(a2);
+
         
         Wettbüro w = new Wettbüro();
         w.wetteAnnehmen(a2, 20, "Tutzer");
-        w.wetteAnnehmen(a4, 9000, "Christoph");
-        w.wetteAnnehmen(a3, 60, "Maxi");
+
         
         
-        System.out.println(b.toString());
+        System.out.println(r.toString());
         System.out.println(w.toString());
-        System.out.println(w.rennenDurchfuehren());
+        
+        r.durchführen();
+        System.out.println(r.ermittleGewinner());
     }
 }

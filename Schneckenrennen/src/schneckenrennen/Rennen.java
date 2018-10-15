@@ -17,6 +17,15 @@ public class Rennen {
     private int teilnehmer;
     private ArrayList<Rennschnecke> teilnehmerliste = new ArrayList<Rennschnecke>();
     private double strecke;
+    private Rennschnecke gewinner;
+
+    public void setGewinner(Rennschnecke gewinner) {
+        this.gewinner = gewinner;
+    }
+
+    public Rennschnecke getGewinner() {
+        return gewinner;
+    }
 
     public double getStrecke() {
         return strecke;
@@ -59,9 +68,13 @@ public class Rennen {
         for (int i = 0; i < teilnehmerliste.size(); i++) {
             if(teilnehmerliste.get(i).getWegDone() >= strecke){
                 System.out.println("Der Gewinner ist: " + teilnehmerliste.get(i).getName());
+                gewinner = teilnehmerliste.get(i);
                 return true;
             }
         }
+        
+        
+        
         return false;
     }
     
