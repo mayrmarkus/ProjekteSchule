@@ -85,6 +85,7 @@ public class Rennen {
     }
     
     public boolean durchführen(){
+
         do{
             lasseKriechen();
         }while(!ermittleGewinner());
