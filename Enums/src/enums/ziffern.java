@@ -28,4 +28,19 @@ public enum ziffern{
     public int wert(){
         return wert;
     }
+    
+    public static int getWert(char i){
+        int zahl = 0; 
+        switch (i) {
+            case 'I':  return ziffern.I.wert();
+            case 'V':  return ziffern.V.wert();
+            case 'X':  return ziffern.X.wert();
+            case 'L':  return ziffern.L.wert();
+            case 'C':  return ziffern.C.wert();
+            case 'D':  return ziffern.D.wert();
+            case 'M':  return ziffern.M.wert();
+            
+        }
+        return 66666666;
+    }
 } 

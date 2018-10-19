@@ -15,30 +15,19 @@ public class Enums {
      * @param args the command line arguments
      */
     public static void main(String[] args) {  
-        String rom = "LX";
+        String rom = "XIX";
         calculusRomanus(rom);
     }
     
     public static void calculusRomanus(String rom){
         int zahl = 0;
         char[] array = rom.toUpperCase().toCharArray();
+        
         for (int i = 0; i < array.length; i++) {
-        switch (array[i]) {
-            case 'I':  zahl += ziffern.I.wert();
-                     break;
-            case 'V':  zahl += ziffern.V.wert();
-                     break;
-            case 'X':  zahl += ziffern.X.wert();
-                     break;
-            case 'L':  zahl += ziffern.L.wert();
-                     break;
-            case 'C':  zahl += ziffern.C.wert();
-                     break;
-            case 'D':  zahl += ziffern.D.wert();
-                     break;
-            case 'M':  zahl += ziffern.M.wert();
-                     break;
-            }
+        if (i+1 < array.length && ziffern.getWert(array[i]) < ziffern.getWert(array[i+1])) {
+                zahl -= ziffern.getWert(array[i]);
+        }else
+         zahl += ziffern.getWert(array[i]);
         }
         System.out.println(zahl);
     }
