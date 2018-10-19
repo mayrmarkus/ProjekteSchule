@@ -12,6 +12,23 @@ package kurzwellenübertragungsgerät;
 public class Radio {
     private boolean isOn;
     private int volume;
+    private double frequency;
+    private Band band;
+
+    public void setBand(Band band) {
+        this.band = band;
+    }
+    
+    public Radio() {
+    }
+
+    public Radio(double frequency) {
+        this.frequency = frequency;
+    }
+    
+    public void setFrequency(double frequency) {
+        this.frequency = frequency;
+    }
     
     public void volumeUp(){
         volume +=1;
@@ -21,11 +38,8 @@ public class Radio {
         volume -=1;
     }
     
-    public void isOn(){
-        if(isOn)
-            System.out.println("Der Radio ist eingeschalten");
-        else
-            System.out.println("Der Radio ist ausgeschalten");
+    public boolean isOn(){
+        return isOn;
     }
     
     public void on(){
@@ -35,4 +49,18 @@ public class Radio {
     public void off(){
         isOn = false;
     }
-}
+    
+    public String toString(){
+        if(isOn)
+            return "Radio an: Freq: " + frequency + ", Volume: " + volume + "\n";
+        else
+            return "Radio aus";
+    }
+    
+    public static double toFreq(String a){
+        switch(a){
+            case "BFBS":  return 103.0; 
+        }
+            return 999999999.999999;
+    }
+}   

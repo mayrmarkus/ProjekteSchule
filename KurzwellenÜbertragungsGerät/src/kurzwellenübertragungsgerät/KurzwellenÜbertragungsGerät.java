@@ -15,7 +15,13 @@ public class KurzwellenÜbertragungsGerät {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Radio r = new Radio();
+        r.setFrequency(200);
+        r.on();
+        r.volumeUp();
+        System.out.println(r.toString());
         
+        System.out.println(Radio.toFreq("BFBS"));
     }
     
 }
