@@ -22,6 +22,7 @@ public enum ziffern{
     private int wert;
     
     ziffern(int wert){
+        
         this.wert = wert;
     }
     
