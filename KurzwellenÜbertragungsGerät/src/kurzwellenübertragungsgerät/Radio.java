@@ -11,11 +11,18 @@ package kurzwellenübertragungsgerät;
  */
 public class Radio {
     private boolean isOn;
+    private String radio;
     private int volume;
     private double frequency;
     private Band band;
 
     public void setBand(Band band) {
+        this.band = band;
+    }
+
+    public Radio(String a, Band band) {
+        this.frequency = toFreq(a);
+        this.radio = a;
         this.band = band;
     }
     
@@ -52,14 +59,27 @@ public class Radio {
     
     public String toString(){
         if(isOn)
-            return "Radio an: Freq: " + frequency + ", Volume: " + volume + "\n";
+            if (band != null) {
+                if (radio != null) 
+                    return "Radio an: Freq: " + frequency + " " + band + ", Volume: " + volume + ", Radio: " + radio +"\n";
+                else
+                    return "Radio an: Freq: " + frequency + " " + band + ", Volume: " + volume + ", Radio: Unbekannt\n";
+            }else
+                if (radio != null) 
+                    return "Radio an: Freq: " + frequency +  " FM, Volume: " + volume + ", Radio: " + radio +"\n";
+                else
+                    return "Radio an: Freq: " + frequency + " FM, Volume: " + volume + ", Radio: Unbekannt\n";
+            
+            
         else
             return "Radio aus";
     }
     
     public static double toFreq(String a){
         switch(a){
-            case "BFBS":  return 103.0; 
+            case "BFBS":  return 103.0;
+            case "Radio Maria": return 107.9;
+            case "Radio Gherdëina": return 95.1;
         }
             return 999999999.999999;
     }

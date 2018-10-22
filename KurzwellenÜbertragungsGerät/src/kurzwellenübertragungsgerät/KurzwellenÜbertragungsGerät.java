@@ -20,8 +20,15 @@ public class KurzwellenÜbertragungsGerät {
         r.on();
         r.volumeUp();
         System.out.println(r.toString());
+
+        Radio f = new Radio("Radio Gherdëina", Band.AM);
+        f.on();
+        System.out.println(f.toString());
         
-        System.out.println(Radio.toFreq("BFBS"));
+        Radio h = new Radio("Radio Maria", Band.FM);
+        h.on();
+        h.volumeUp();
+        System.out.println(h.toString());
     }
     
 }

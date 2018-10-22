@@ -9,17 +9,17 @@ package kurzwellenübertragungsgerät;
  *
  * @author Markus_Mayr
  */
-public enum Band {    
-    FM(1),
-    AM(2);
+public enum Band {
+    FM("Frequenzmodulation"),
+    AM("Amplitudemodulation");
     
-    private double wert;
+    private String wert;
     
-    Band(double wert){
+    Band(String wert){
         this.wert = wert;
     }
 
-    public double getWert() {
+    public String getWert() {
         return wert;
     }
     
