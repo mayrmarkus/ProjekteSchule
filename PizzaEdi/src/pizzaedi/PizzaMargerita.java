@@ -14,6 +14,22 @@ import java.util.ArrayList;
 public class PizzaMargerita extends Pizza {
     
     private String groesse;
+    private double preis = 1;
+    
+    public double getPreis(){
+        double a = 0;
+        switch(groesse){
+            case "klein": a = Groesse.klein.wert();
+            case "mittel": a = Groesse.mittel.wert();
+            case "gross": a = Groesse.gross.wert();
+        }
+        return (getStandartPreis() + preis) * a;
+    }
+    
+    public PizzaMargerita(String groesse) {
+        this.groesse = groesse;
+        setZutaten();
+    }
 
     public void setGroesse(String groesse) {
         groesse.toLowerCase();
@@ -22,9 +38,9 @@ public class PizzaMargerita extends Pizza {
         }else
             System.out.println(groesse + " ist kein von uns verwendetes Größenmaß ");   
     }
-
-    @Override
-    void setZutaten(String a) {
-        zutaten(a);
+    
+    private void setZutaten() {
+        zutaten.add("Tomatensose");
+        zutaten.add("Mozzarella");
     }
 }

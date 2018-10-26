@@ -15,7 +15,7 @@ public class PizzaEdi {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        PizzaMargerita m = new PizzaMargerita("mittel");
     }
     
 }

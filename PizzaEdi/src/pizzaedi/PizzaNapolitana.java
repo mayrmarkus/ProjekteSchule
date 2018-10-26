@@ -12,5 +12,35 @@ import java.util.ArrayList;
  * @author Markus_Mayr
  */
 public class PizzaNapolitana extends Pizza{
-        
+
+    private String groesse;
+    private double preis = 1.5;
+    
+    public double getPreis(){
+        double a = 0;
+        switch(groesse){
+            case "klein": a = Groesse.klein.wert();
+            case "mittel": a = Groesse.mittel.wert();
+            case "gross": a = Groesse.gross.wert();
+        }
+        return (getStandartPreis() + preis) * a;
+    }
+    
+    public PizzaNapolitana() {
+    setZutaten();
+    }
+    
+    public void setGroesse(String groesse) {
+        groesse.toLowerCase();
+        if (groesse.equals("klein") || groesse.equals("mittel") || groesse.equals("groß")) {
+            this.groesse = groesse;
+        }else
+            System.out.println(groesse + " ist kein von uns verwendetes Größenmaß ");   
+    }
+    
+    private void setZutaten() {
+        zutaten.add("Tomatensose");
+        zutaten.add("Mozzarella");
+        zutaten.add("Basilikum");
+    }       
 }

@@ -12,16 +12,18 @@ import java.util.ArrayList;
  * @author Markus_Mayr
  */
 abstract class Pizza {
-    private ArrayList <String> zutaten = new ArrayList<String>();
+    protected ArrayList <String> zutaten = new ArrayList<String>();
     private int standartPreis = 5;
-    private double zusatzPreis;
-    
-    public void zutaten(String b){
-        zutaten.add(b);
+
+    public int getStandartPreis() {
+        return standartPreis;
     }
-    abstract void setZutaten(String a);
     
     public String toString(){
-        return "Zutaten: " + zutaten;
+        String a = "";
+        for (int i = 0; i < zutaten.size(); i++) {
+            a = "Zutaten: " + zutaten.get(i);
+        }
+        return a;
     }
 }
