@@ -20,20 +20,23 @@ public class PizzaMargerita extends Pizza {
         double a = 0;
         switch(groesse){
             case "klein": a = Groesse.klein.wert();
+                break;
             case "mittel": a = Groesse.mittel.wert();
+                break;
             case "gross": a = Groesse.gross.wert();
+                break;
         }
         return (getStandartPreis() + preis) * a;
     }
     
     public PizzaMargerita(String groesse) {
-        this.groesse = groesse;
+        setGroesse(groesse);
         setZutaten();
     }
 
     public void setGroesse(String groesse) {
         groesse.toLowerCase();
-        if (groesse.equals("klein") || groesse.equals("mittel") || groesse.equals("groß")) {
+        if (groesse.equals("klein") || groesse.equals("mittel") || groesse.equals("gross")) {
             this.groesse = groesse;
         }else
             System.out.println(groesse + " ist kein von uns verwendetes Größenmaß ");   
@@ -42,5 +45,14 @@ public class PizzaMargerita extends Pizza {
     private void setZutaten() {
         zutaten.add("Tomatensose");
         zutaten.add("Mozzarella");
+    }
+    
+    @Override
+    public String toString(){
+        String a = "Zutaten: ";
+        for (int i = 0; i < zutaten.size(); i++) {
+            a += zutaten.get(i) + ", ";
+        }
+        return  "Margerita: " + a + "Preis: " + getPreis() + "€";
     }
 }
