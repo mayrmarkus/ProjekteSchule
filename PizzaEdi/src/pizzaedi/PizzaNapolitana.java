@@ -52,8 +52,16 @@ public class PizzaNapolitana extends Pizza{
     public String toString(){
         String a = "Zutaten: ";
         for (int i = 0; i < zutaten.size(); i++) {
-            a += zutaten.get(i) + ", ";
+            if (zutaten.size()-1 == i) {
+                a += zutaten.get(i) + " ";
+            }else
+                a += zutaten.get(i) + ", ";
         }
-        return  "Napolitana: " + a + "Preis: " + getPreis() + "€";
+        return  "Napolitana: " + a + "Preis: " + getPreis() + "€" + getBackZeit();
+    }
+
+    @Override
+    String getBackZeit() {
+        return "\nNapolitana benötigt: 5.3 Minuten";
     }
 }

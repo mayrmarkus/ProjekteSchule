@@ -51,8 +51,16 @@ public class PizzaMargerita extends Pizza {
     public String toString(){
         String a = "Zutaten: ";
         for (int i = 0; i < zutaten.size(); i++) {
-            a += zutaten.get(i) + ", ";
+            if (zutaten.size()-1 == i) {
+                a += zutaten.get(i) + " ";
+            }else
+                a += zutaten.get(i) + ", ";
         }
-        return  "Margerita: " + a + "Preis: " + getPreis() + "€";
+        return  "Margerita: " + a + "Preis: " + getPreis() + "€" + getBackZeit();
+    }
+
+    @Override
+    String getBackZeit() {
+        return "\nMargarita benötigt: 5 Minuten";
     }
 }

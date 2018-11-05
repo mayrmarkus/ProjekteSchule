@@ -14,6 +14,8 @@ import java.util.ArrayList;
 abstract class Pizza {
     protected ArrayList <String> zutaten = new ArrayList<String>();
     private int standartPreis = 5;
+    
+    abstract String getBackZeit();
 
     public int getStandartPreis() {
         return standartPreis;
