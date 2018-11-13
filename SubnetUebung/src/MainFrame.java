@@ -35,7 +35,6 @@ public class MainFrame extends javax.swing.JFrame {
         txtCIDR = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lblOutput2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtSubNet = new javax.swing.JTextField();
 
@@ -82,9 +81,8 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(txtIP, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                                     .addComponent(txtCIDR)
                                     .addComponent(txtSubNet)))
-                            .addComponent(lblOutput2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(108, Short.MAX_VALUE))
+                            .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,20 +92,18 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCIDR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCIDR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtSubNet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSubNet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(24, 24, 24)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblOutput2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(lblOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -119,8 +115,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        lblOutput.setText(txtIP.getText());
-        lblOutput2.setText(txtCIDR.getText());
+        String cidr = txtCIDR.getText();
         
         String[]strBytes = txtIP.getText().split("\\.");
         int[]bts = new int[strBytes.length]; 
@@ -130,7 +125,18 @@ public class MainFrame extends javax.swing.JFrame {
         for (int i = 0; i < bts.length; i++) {
             lblOutput.setText(bts[i] + " ");
         }
-        IpAdress ip = new IpAdress(bts);
+        
+        String[]strSub = txtIP.getText().split("\\.");
+        int[]btsSub = new int[strSub.length]; 
+        for (int i = 0; i < strSub.length; i++) {
+            btsSub[i] = Integer.parseInt(strSub[i]);
+        }
+        for (int i = 0; i < btsSub.length; i++) {
+            lblOutput.setText(btsSub[i] + " ");
+        }
+        IpAdress ip = new IpAdress(cidr, bts, btsSub);
+        
+        lblOutput.setText(ip.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -174,7 +180,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblOutput;
-    private javax.swing.JLabel lblOutput2;
     private javax.swing.JTextField txtCIDR;
     private javax.swing.JTextField txtIP;
     private javax.swing.JTextField txtSubNet;
