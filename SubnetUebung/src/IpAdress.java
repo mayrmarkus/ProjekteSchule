@@ -12,8 +12,6 @@ public class IpAdress {
     
     int[] dezbytes;
     String[] binbytes = new String[4];
-    char[] temp = new char[8];
-    String[] binfin = new String[4];
     
     public IpAdress(int[] bytes){
         this.dezbytes = bytes;
@@ -21,21 +19,10 @@ public class IpAdress {
     }
     
     private void convertToBin(){
+        String a = "";
         for (int i = 0; i < dezbytes.length; i++) {
-            binbytes[i] = (Integer.toBinaryString(dezbytes[i]));
+            a += Integer.toBinaryString(dezbytes[i]);
         }
-        for (int i = 0; i < 4; i++) {
-            for (int j = temp.length-1; j > 0; j--) {
-                for (int k = binbytes[i].length(); k > 0; k--) {
-                    temp[j] = binbytes[i].charAt(k);
-                }
-            }
-            for (int j = 0; j < temp.length; j++) {
-                binfin[i] = temp[j] + ""; 
-            }
-        }
-        for (int i = 0; i < 4; i++) {
-            System.out.println(binfin[i]);
-        }
+        System.out.println(a);
     }  
 }
