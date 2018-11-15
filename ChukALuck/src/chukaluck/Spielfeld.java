@@ -5,6 +5,7 @@
  */
 package chukaluck;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,10 +43,31 @@ public class Spielfeld extends javax.swing.JFrame {
         lbl_Nr4 = new javax.swing.JLabel();
         lbl_Nr5 = new javax.swing.JLabel();
         lbl_Nr6 = new javax.swing.JLabel();
+        lbl_Field7 = new javax.swing.JLabel();
+        lbl_Field8 = new javax.swing.JLabel();
+        lbl_Field13 = new javax.swing.JLabel();
+        lbl_Field14 = new javax.swing.JLabel();
+        cb_Field5 = new javax.swing.JCheckBox();
+        cb_Field6 = new javax.swing.JCheckBox();
+        cb_Field7 = new javax.swing.JCheckBox();
+        cb_Field8 = new javax.swing.JCheckBox();
+        cb_Field13 = new javax.swing.JCheckBox();
+        cb_Field14 = new javax.swing.JCheckBox();
+        lbl_Field5 = new javax.swing.JLabel();
+        lbl_Field6 = new javax.swing.JLabel();
+        cb_Field15 = new javax.swing.JCheckBox();
+        lbl_Field15 = new javax.swing.JLabel();
+        cb_Field16 = new javax.swing.JCheckBox();
+        lbl_Field16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_Commit.setText("OK");
+        btn_Commit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CommitActionPerformed(evt);
+            }
+        });
 
         cb_Nr1.setText("1");
         cb_Nr1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +123,78 @@ public class Spielfeld extends javax.swing.JFrame {
 
         lbl_Nr6.setText("jLabel1");
 
+        lbl_Field7.setText("jLabel1");
+
+        lbl_Field8.setText("jLabel1");
+
+        lbl_Field13.setText("jLabel1");
+
+        lbl_Field14.setText("jLabel1");
+
+        cb_Field5.setText("5");
+        cb_Field5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field5ActionPerformed(evt);
+            }
+        });
+
+        cb_Field6.setText("6");
+        cb_Field6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field6ActionPerformed(evt);
+            }
+        });
+
+        cb_Field7.setText("7");
+        cb_Field7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field7ActionPerformed(evt);
+            }
+        });
+
+        cb_Field8.setText("8");
+        cb_Field8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field8ActionPerformed(evt);
+            }
+        });
+
+        cb_Field13.setText("13");
+        cb_Field13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field13ActionPerformed(evt);
+            }
+        });
+
+        cb_Field14.setText("14");
+        cb_Field14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field14ActionPerformed(evt);
+            }
+        });
+
+        lbl_Field5.setText("jLabel1");
+
+        lbl_Field6.setText("jLabel1");
+
+        cb_Field15.setText("15");
+        cb_Field15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field15ActionPerformed(evt);
+            }
+        });
+
+        lbl_Field15.setText("jLabel1");
+
+        cb_Field16.setText("16");
+        cb_Field16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_Field16ActionPerformed(evt);
+            }
+        });
+
+        lbl_Field16.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,35 +205,74 @@ public class Spielfeld extends javax.swing.JFrame {
                 .addGap(56, 56, 56))
             .addGroup(layout.createSequentialGroup()
                 .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_Nr1)
-                    .addComponent(cb_Nr1))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cb_Nr2)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbl_Nr2)
-                        .addGap(21, 21, 21)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_Nr3)
-                    .addComponent(cb_Nr3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cb_Nr4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_Field5)
+                            .addComponent(cb_Field5))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(cb_Field6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(lbl_Field6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(cb_Nr5))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_Field7)
+                            .addComponent(cb_Field7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_Field8)
+                            .addComponent(lbl_Field8))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_Field13, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_Field13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_Field14)
+                            .addComponent(cb_Field14))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_Field15)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 2, Short.MAX_VALUE)
+                                .addComponent(cb_Field15)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_Field16)
+                            .addComponent(lbl_Field16)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_Nr4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_Nr5)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cb_Nr6)
-                    .addComponent(lbl_Nr6))
-                .addContainerGap(195, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_Nr1)
+                            .addComponent(cb_Nr1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(cb_Nr2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(lbl_Nr2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_Nr3)
+                            .addComponent(cb_Nr3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_Nr4)
+                            .addComponent(lbl_Nr4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_Nr5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_Nr5, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_Nr6)
+                            .addComponent(lbl_Nr6))))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,56 +293,161 @@ public class Spielfeld extends javax.swing.JFrame {
                     .addComponent(lbl_Nr4)
                     .addComponent(lbl_Nr3)
                     .addComponent(lbl_Nr2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
-                .addComponent(btn_Commit)
-                .addGap(51, 51, 51))
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cb_Field5)
+                            .addComponent(cb_Field6)
+                            .addComponent(cb_Field7)
+                            .addComponent(cb_Field8)
+                            .addComponent(cb_Field13)
+                            .addComponent(cb_Field14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_Field5)
+                            .addComponent(lbl_Field14)
+                            .addComponent(lbl_Field13)
+                            .addComponent(lbl_Field8)
+                            .addComponent(lbl_Field7)
+                            .addComponent(lbl_Field6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addComponent(btn_Commit)
+                        .addGap(51, 51, 51))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cb_Field16)
+                            .addComponent(cb_Field15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_Field16)
+                            .addComponent(lbl_Field15))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private ArrayList geld = new ArrayList();
+    // Geld der Würfelnummer -1
+    public ArrayList getGeld() {
+        return geld;
+    }
     private void cb_Nr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr3ActionPerformed
         // TODO add your handling code here:
-        if (cb_Nr3.isSelected()) {
-            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            if (cb_Nr3.isSelected()) {
+            geld.set(2, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
+            lbl_Nr3.setText(geld.get(2) + "€");
         }
     }//GEN-LAST:event_cb_Nr3ActionPerformed
 
     private void cb_Nr5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr5ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr5.isSelected()) {
-            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            geld.set(4, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
+            lbl_Nr5.setText(geld.get(4) + "€");
         }
     }//GEN-LAST:event_cb_Nr5ActionPerformed
 
     private void cb_Nr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr1ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr1.isSelected()) {
-            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            geld.set(0, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
+            lbl_Nr1.setText(geld.get(0) + "€");
         }
     }//GEN-LAST:event_cb_Nr1ActionPerformed
 
     private void cb_Nr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr2ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr2.isSelected()) {
-            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            geld.set(1, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
+            lbl_Nr2.setText(geld.get(1) + "€");
         }
     }//GEN-LAST:event_cb_Nr2ActionPerformed
 
     private void cb_Nr4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr4ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr4.isSelected()) {
-            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            geld.set(3, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
+            lbl_Nr4.setText(geld.get(3) + "€");
         }
     }//GEN-LAST:event_cb_Nr4ActionPerformed
 
     private void cb_Nr6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr6ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr6.isSelected()) {
-            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
-            lbl_Nr6.setText(geld + "€");
+            geld.set(5, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
+            lbl_Nr6.setText(geld.get(5) + "€");
         }
     }//GEN-LAST:event_cb_Nr6ActionPerformed
+
+    private void cb_Field5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field5ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field5.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field5.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field5ActionPerformed
+
+    private void cb_Field6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field6ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field6.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field6.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field6ActionPerformed
+
+    private void cb_Field7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field7ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field7.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field7.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field7ActionPerformed
+
+    private void cb_Field8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field8ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field8.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field8.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field8ActionPerformed
+
+    private void cb_Field13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field13ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field13.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field13.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field13ActionPerformed
+
+    private void cb_Field14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field14ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field14.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field14.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field14ActionPerformed
+
+    private void cb_Field15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field15ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field15.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field15.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field15ActionPerformed
+
+    private void cb_Field16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Field16ActionPerformed
+        // TODO add your handling code here:
+        if (cb_Field16.isSelected()) {
+            double geld = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Field16.setText(geld + "€");
+        }
+    }//GEN-LAST:event_cb_Field16ActionPerformed
+
+    private void btn_CommitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CommitActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_CommitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,12 +486,28 @@ public class Spielfeld extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Commit;
+    private javax.swing.JCheckBox cb_Field13;
+    private javax.swing.JCheckBox cb_Field14;
+    private javax.swing.JCheckBox cb_Field15;
+    private javax.swing.JCheckBox cb_Field16;
+    private javax.swing.JCheckBox cb_Field5;
+    private javax.swing.JCheckBox cb_Field6;
+    private javax.swing.JCheckBox cb_Field7;
+    private javax.swing.JCheckBox cb_Field8;
     private javax.swing.JCheckBox cb_Nr1;
     private javax.swing.JCheckBox cb_Nr2;
     private javax.swing.JCheckBox cb_Nr3;
     private javax.swing.JCheckBox cb_Nr4;
     private javax.swing.JCheckBox cb_Nr5;
     private javax.swing.JCheckBox cb_Nr6;
+    private javax.swing.JLabel lbl_Field13;
+    private javax.swing.JLabel lbl_Field14;
+    private javax.swing.JLabel lbl_Field15;
+    private javax.swing.JLabel lbl_Field16;
+    private javax.swing.JLabel lbl_Field5;
+    private javax.swing.JLabel lbl_Field6;
+    private javax.swing.JLabel lbl_Field7;
+    private javax.swing.JLabel lbl_Field8;
     private javax.swing.JLabel lbl_Nr1;
     private javax.swing.JLabel lbl_Nr2;
     private javax.swing.JLabel lbl_Nr3;
