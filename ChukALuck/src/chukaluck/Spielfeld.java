@@ -6,6 +6,7 @@
 package chukaluck;
 
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,7 @@ public class Spielfeld extends javax.swing.JFrame {
      */
     public Spielfeld() {
         initComponents();
+        setLblKonto();
     }
 
     /**
@@ -406,7 +408,7 @@ public class Spielfeld extends javax.swing.JFrame {
     }
     
     private double konto = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie ihr konto ein"));
-    
+
     public void setLblKonto(){
         lbl_Konto.setText(konto + "");
     }
