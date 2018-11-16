@@ -426,7 +426,10 @@ public class Spielfeld extends javax.swing.JFrame {
             if (cb_Nr3.isSelected()) {
             geldNr3 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr3.setText(geldNr3 + "€");
-        }
+        }else{
+            geldNr3 = 0;
+            lbl_Nr3.setText("");
+            }
         }else
             setInvisible();
     }//GEN-LAST:event_cb_Nr3ActionPerformed
