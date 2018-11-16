@@ -59,10 +59,15 @@ public class Spielfeld extends javax.swing.JFrame {
         lbl_Field15 = new javax.swing.JLabel();
         cb_Field16 = new javax.swing.JCheckBox();
         lbl_Field16 = new javax.swing.JLabel();
+        lbl_WZ1 = new javax.swing.JLabel();
+        lbl_WZ2 = new javax.swing.JLabel();
+        lbl_WZ3 = new javax.swing.JLabel();
+        lbl_Konto = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_Commit.setText("OK");
+        btn_Commit.setText("Würfeln");
         btn_Commit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CommitActionPerformed(evt);
@@ -195,89 +200,109 @@ public class Spielfeld extends javax.swing.JFrame {
 
         lbl_Field16.setText("jLabel1");
 
+        lbl_WZ1.setText("jLabel1");
+
+        lbl_WZ2.setText("jLabel2");
+
+        lbl_WZ3.setText("jLabel3");
+
+        lbl_Konto.setText("jLabel1");
+
+        jLabel2.setText("Ihr Kontostand: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Commit)
-                .addGap(56, 56, 56))
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbl_Field5)
-                            .addComponent(cb_Field5))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_Field5)
+                            .addComponent(lbl_WZ1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(cb_Field6))
-                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(lbl_WZ2)
+                                .addGap(28, 28, 28)
+                                .addComponent(lbl_WZ3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(cb_Field6))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbl_Field6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(lbl_Field6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_Field7)
-                            .addComponent(cb_Field7))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_Field8)
-                            .addComponent(lbl_Field8))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_Field13, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_Field13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_Field14)
-                            .addComponent(cb_Field14))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_Field15)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 2, Short.MAX_VALUE)
-                                .addComponent(cb_Field15)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_Field16)
-                            .addComponent(lbl_Field16)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_Nr1)
-                            .addComponent(cb_Nr1))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(cb_Nr2))
-                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Field7)
+                                    .addComponent(cb_Field7))
                                 .addGap(18, 18, 18)
-                                .addComponent(lbl_Nr2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_Field8)
+                                    .addComponent(lbl_Field8))
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_Field13, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_Field13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl_Field14)
+                                    .addComponent(cb_Field14))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cb_Field15)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cb_Field16))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_Field16)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btn_Commit, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl_Field15)))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_Nr3)
-                            .addComponent(cb_Nr3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_Nr4)
-                            .addComponent(lbl_Nr4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cb_Nr5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_Nr5, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_Nr6)
-                            .addComponent(lbl_Nr6))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl_Nr1)
+                                    .addComponent(cb_Nr1))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(cb_Nr2))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbl_Nr2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Nr3)
+                                    .addComponent(cb_Nr3))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_Nr4)
+                                    .addComponent(lbl_Nr4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cb_Nr5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbl_Nr5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_Nr6)
+                                    .addComponent(lbl_Nr6)))
+                            .addComponent(lbl_Konto))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_Nr1)
                     .addComponent(cb_Nr2)
@@ -295,6 +320,9 @@ public class Spielfeld extends javax.swing.JFrame {
                     .addComponent(lbl_Nr2))
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cb_Field16)
+                        .addComponent(cb_Field15))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cb_Field5)
@@ -310,73 +338,134 @@ public class Spielfeld extends javax.swing.JFrame {
                             .addComponent(lbl_Field13)
                             .addComponent(lbl_Field8)
                             .addComponent(lbl_Field7)
-                            .addComponent(lbl_Field6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addComponent(btn_Commit)
-                        .addGap(51, 51, 51))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cb_Field16)
-                            .addComponent(cb_Field15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_Field6)
                             .addComponent(lbl_Field16)
                             .addComponent(lbl_Field15))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_WZ1)
+                            .addComponent(lbl_WZ2)
+                            .addComponent(lbl_WZ3))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_Konto)
+                            .addComponent(jLabel2))
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_Commit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private ArrayList geld = new ArrayList();
-    // Geld der Würfelnummer -1
-    public ArrayList getGeld() {
-        return geld;
+
+    private int maxDrei(){
+        int counter = 0;
+        if (cb_Nr1.isSelected()) {
+            counter++;
+        }
+        if (cb_Nr2.isSelected()) {
+            counter++;
+        }
+        if (cb_Nr3.isSelected()) {
+            counter++;
+        }
+        if (cb_Nr4.isSelected()) {
+            counter++;
+        }
+        if (cb_Nr5.isSelected()) {
+            counter++;
+        }
+        if (cb_Nr6.isSelected()) {
+            counter++;
+        }
+        return counter;
     }
+    
+    private void setInvisible(){
+        if (!cb_Nr1.isSelected()) {
+            cb_Nr1.setEnabled(false);
+        }
+        if (!cb_Nr2.isSelected()) {
+            cb_Nr2.setEnabled(false);
+        }
+        if (!cb_Nr3.isSelected()) {
+            cb_Nr3.setEnabled(false);
+        }
+        if (!cb_Nr4.isSelected()) {
+            cb_Nr4.setEnabled(false);
+        }
+        if (!cb_Nr5.isSelected()) {
+            cb_Nr5.setEnabled(false);
+        }
+        if (!cb_Nr6.isSelected()) {
+            cb_Nr6.setEnabled(false);
+        }
+    }
+    
+    private double konto = Double.parseDouble(JOptionPane.showInputDialog("Geben Sie ihr konto ein"));
+    
+    public void setLblKonto(){
+        lbl_Konto.setText(konto + "");
+    }
+    
+    private double geldNr1;
+    private double geldNr2;
+    private double geldNr3;
+    private double geldNr4;
+    private double geldNr5;
+    private double geldNr6;
+    
     private void cb_Nr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr3ActionPerformed
         // TODO add your handling code here:
+        if (maxDrei() < 3) {
             if (cb_Nr3.isSelected()) {
-            geld.set(2, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
-            lbl_Nr3.setText(geld.get(2) + "€");
+            geldNr3 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Nr3.setText(geldNr3 + "€");
         }
+        }else
+            setInvisible();
     }//GEN-LAST:event_cb_Nr3ActionPerformed
 
     private void cb_Nr5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr5ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr5.isSelected()) {
-            geld.set(4, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
-            lbl_Nr5.setText(geld.get(4) + "€");
+            geldNr5 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Nr5.setText(geldNr5 + "€");
         }
     }//GEN-LAST:event_cb_Nr5ActionPerformed
 
     private void cb_Nr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr1ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr1.isSelected()) {
-            geld.set(0, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
-            lbl_Nr1.setText(geld.get(0) + "€");
+            geldNr1 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Nr1.setText(geldNr1 + "€");
         }
     }//GEN-LAST:event_cb_Nr1ActionPerformed
 
     private void cb_Nr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr2ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr2.isSelected()) {
-            geld.set(1, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
-            lbl_Nr2.setText(geld.get(1) + "€");
+            geldNr2 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Nr2.setText(geldNr2 + "€");
         }
     }//GEN-LAST:event_cb_Nr2ActionPerformed
 
     private void cb_Nr4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr4ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr4.isSelected()) {
-            geld.set(3, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
-            lbl_Nr4.setText(geld.get(3) + "€");
+            geldNr4 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Nr4.setText(geldNr4 + "€");
         }
     }//GEN-LAST:event_cb_Nr4ActionPerformed
 
     private void cb_Nr6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr6ActionPerformed
         // TODO add your handling code here:
         if (cb_Nr6.isSelected()) {
-            geld.set(5, Double.parseDouble(JOptionPane.showInputDialog("Betrag")));
-            lbl_Nr6.setText(geld.get(5) + "€");
+            geldNr6 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
+            lbl_Nr6.setText(geldNr6 + "€");
         }
     }//GEN-LAST:event_cb_Nr6ActionPerformed
 
@@ -446,9 +535,61 @@ public class Spielfeld extends javax.swing.JFrame {
 
     private void btn_CommitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CommitActionPerformed
         // TODO add your handling code here:
+        Wuerfeln w = new Wuerfeln();
+        w.wuerfeln();
+        lbl_WZ1.setText(w.getWuerfel()[0] + "");
+        lbl_WZ2.setText(w.getWuerfel()[1] + "");
+        lbl_WZ3.setText(w.getWuerfel()[2] + "");
+        System.out.println(ueberpruefung(w));
         
     }//GEN-LAST:event_btn_CommitActionPerformed
 
+    private double ueberpruefung(Wuerfeln w){
+        int counter = 0;
+        double geld = 0;
+        for (int i = 0; i < 3; i++) {
+            if (cb_Nr1.isSelected() && w.getWuerfel()[i] == 1) {
+                counter++;
+                geld += geldNr1;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (cb_Nr2.isSelected() && w.getWuerfel()[i] == 2) {
+                counter++;
+                geld += geldNr2;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (cb_Nr3.isSelected() && w.getWuerfel()[i] == 3) {
+                counter++;
+                geld += geldNr3;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (cb_Nr4.isSelected() && w.getWuerfel()[i] == 4) {
+                counter++;
+                geld += geldNr4;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (cb_Nr5.isSelected() && w.getWuerfel()[i] == 5) {
+                counter++;
+                geld += geldNr5;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (cb_Nr6.isSelected() && w.getWuerfel()[i] == 6) {
+                counter++;
+                geld += geldNr6;
+            }
+        }
+        
+        if (counter == 3) {
+            geld = geld * 10 + geld;
+        }else
+            geld = geld * counter + geld;
+        return geld;
+    }
     /**
      * @param args the command line arguments
      */
@@ -500,6 +641,7 @@ public class Spielfeld extends javax.swing.JFrame {
     private javax.swing.JCheckBox cb_Nr4;
     private javax.swing.JCheckBox cb_Nr5;
     private javax.swing.JCheckBox cb_Nr6;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_Field13;
     private javax.swing.JLabel lbl_Field14;
     private javax.swing.JLabel lbl_Field15;
@@ -508,11 +650,15 @@ public class Spielfeld extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Field6;
     private javax.swing.JLabel lbl_Field7;
     private javax.swing.JLabel lbl_Field8;
+    private javax.swing.JLabel lbl_Konto;
     private javax.swing.JLabel lbl_Nr1;
     private javax.swing.JLabel lbl_Nr2;
     private javax.swing.JLabel lbl_Nr3;
     private javax.swing.JLabel lbl_Nr4;
     private javax.swing.JLabel lbl_Nr5;
     private javax.swing.JLabel lbl_Nr6;
+    private javax.swing.JLabel lbl_WZ1;
+    private javax.swing.JLabel lbl_WZ2;
+    private javax.swing.JLabel lbl_WZ3;
     // End of variables declaration//GEN-END:variables
 }

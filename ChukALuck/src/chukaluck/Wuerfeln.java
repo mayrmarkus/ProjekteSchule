@@ -26,7 +26,7 @@ public class Wuerfeln {
     
     public void wuerfeln(){
         Random rand = new Random();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             wuerfel[i] = rand.nextInt(6) + 1;
         }
     }
