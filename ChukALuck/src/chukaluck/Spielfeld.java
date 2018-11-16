@@ -590,9 +590,9 @@ public class Spielfeld extends javax.swing.JFrame {
         }
         
         if (counter == 3) {
-            geld = geld * 10 + geld;
+            geld *= 10;
         }else
-            geld = geld * counter + geld;
+            geld *= counter;
         return geld;
     }
     /**
