@@ -15,7 +15,9 @@ public class ChukALuck {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+ 
+        Spielfeld sp = new Spielfeld();
+        sp.setVisible(true);
     }
     
 }
