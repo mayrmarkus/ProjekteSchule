@@ -5,6 +5,8 @@
  */
 package chukaluck;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Markus_Mayr
@@ -15,12 +17,12 @@ public class Spieler {
     private String nName;
     private double konto;
 
+
+    
     public Spieler() {
-        spielerEin se = new spielerEin();
-        do {
-            se.setVisible(true);
-        } while (!se.isWeiter());
-            se.setVisible(false);
+        vName = JOptionPane.showInputDialog("Vorname");
+        nName = JOptionPane.showInputDialog("Nachname");
+        konto = Double.parseDouble(JOptionPane.showInputDialog("Konto"));
     }
     
     public String getvName() {

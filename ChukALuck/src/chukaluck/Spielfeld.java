@@ -20,7 +20,6 @@ public class Spielfeld extends javax.swing.JFrame {
      */
     
     Spieler s = new Spieler();
-    
     public Spielfeld() {
         initComponents();
         
@@ -386,7 +385,7 @@ public class Spielfeld extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private int maxDrei(){
+    private boolean maxDrei(){
         int counter = 0;
         if (cb_Nr1.isSelected()) {
             counter++;
@@ -406,7 +405,11 @@ public class Spielfeld extends javax.swing.JFrame {
         if (cb_Nr6.isSelected()) {
             counter++;
         }
-        return counter;
+        
+        if (counter < 3) 
+            return true;
+        else
+            return false;
     }
     
     private void setInvisible(){
@@ -453,7 +456,7 @@ public class Spielfeld extends javax.swing.JFrame {
     
     private void cb_Nr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr3ActionPerformed
         // TODO add your handling code here:
-        if (maxDrei() < 4) {
+        if (maxDrei()) {
             if (cb_Nr3.isSelected()) {
             geldNr3 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr3.setText(geldNr3 + "€");
@@ -468,7 +471,7 @@ public class Spielfeld extends javax.swing.JFrame {
 
     private void cb_Nr5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr5ActionPerformed
         // TODO add your handling code here:
-        if (maxDrei() < 4 ) {
+        if (maxDrei()) {
             if (cb_Nr5.isSelected()) {
             geldNr5 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr5.setText(geldNr5 + "€");
@@ -483,7 +486,7 @@ public class Spielfeld extends javax.swing.JFrame {
 
     private void cb_Nr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr1ActionPerformed
         // TODO add your handling code here:
-        if (maxDrei() < 4 ) {
+        if (maxDrei()) {
             if (cb_Nr1.isSelected()) {
             geldNr1 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr1.setText(geldNr1 + "€");
@@ -498,7 +501,7 @@ public class Spielfeld extends javax.swing.JFrame {
 
     private void cb_Nr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr2ActionPerformed
         // TODO add your handling code here:
-        if (maxDrei() < 4 ) {
+        if (maxDrei()) {
             if (cb_Nr2.isSelected()) {
             geldNr2 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr2.setText(geldNr2 + "€");
@@ -513,7 +516,7 @@ public class Spielfeld extends javax.swing.JFrame {
 
     private void cb_Nr4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr4ActionPerformed
         // TODO add your handling code here:
-        if (maxDrei() < 4 ) {
+        if (maxDrei()) {
             if (cb_Nr4.isSelected()) {
             geldNr4 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr4.setText(geldNr4 + "€");
@@ -528,7 +531,7 @@ public class Spielfeld extends javax.swing.JFrame {
 
     private void cb_Nr6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_Nr6ActionPerformed
         // TODO add your handling code here:
-        if (maxDrei() < 4 ) {
+        if (maxDrei()) {
             if (cb_Nr6.isSelected()) {
             geldNr6 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr6.setText(geldNr6 + "€");
@@ -646,6 +649,7 @@ public class Spielfeld extends javax.swing.JFrame {
         lbl_WZ3.setText(w.getWuerfel()[2] + "");
         System.out.println(ueberpruefung(w));
         
+        Ausgabe a = new Ausgabe();
     }//GEN-LAST:event_btn_CommitActionPerformed
 
     private double ueberpruefung(Wuerfeln w){
