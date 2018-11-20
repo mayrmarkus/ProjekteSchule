@@ -46,6 +46,8 @@ public class MainFrame extends javax.swing.JFrame {
         lbl_Broad = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lbl_KleinsteIp = new javax.swing.JLabel();
+        lbl_Broadcast = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,7 +86,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel5.setText("CIDR");
 
-        jLabel6.setText("ber");
+        jLabel6.setText("KleinsteIp");
 
         lbl_ipbin.setText("jLabel7");
 
@@ -96,9 +98,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         lbl_Broad.setText("jLabel8");
 
-        jLabel8.setText("Autismus");
+        jLabel8.setText("KleinsteIp");
 
-        jLabel9.setText("Kinder");
+        jLabel9.setText("Broadcast");
+
+        lbl_KleinsteIp.setText("jLabel10");
+
+        lbl_Broadcast.setText("jLabel11");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,12 +126,14 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel9))
-                                .addGap(32, 32, 32)
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lbl_ipbin)
                                     .addComponent(lbl_cidr)
                                     .addComponent(lbl_ber)
-                                    .addComponent(lbl_Broad)))
+                                    .addComponent(lbl_Broad)
+                                    .addComponent(lbl_KleinsteIp)
+                                    .addComponent(lbl_Broadcast)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -172,9 +180,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(lbl_Broad))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lbl_KleinsteIp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(lbl_Broadcast))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -195,24 +207,41 @@ public class MainFrame extends javax.swing.JFrame {
             bts[i] = Integer.parseInt(strBytes[i]);
         }
 
-        String[]strSub = txtIP.getText().split("\\.");
+        String[]strSub = txtSubNet.getText().split("\\.");
         int[]btsSub = new int[strSub.length]; 
         for (int i = 0; i < strSub.length; i++) {
             btsSub[i] = Integer.parseInt(strSub[i]);
         }
+        
         IpAdress ip = null;
         IpAdress ip2 = null;
+        
         if (txtCIDR.getText().equals("")) {
             ip2 = new IpAdress(btsSub, bts);
+            
+            lbl_ipbin.setText(ip2.getIpAdress());
+            lbl_cidr.setText(ip2.getCidr());
+            lbl_ber.setText(ip2.getBer());
+            lbl_Broad.setText(ip2.getBroad());
+        
+            ip2.toDez();
+            lbl_KleinsteIp.setText(ip2.getBerDez());
+            lbl_Broadcast.setText(ip2.getBroadDez());
         }
         if(txtSubNet.getText().equals("")){
             ip = new IpAdress(cidr, bts);
+            
+            lbl_ipbin.setText(ip.getIpAdress());
+            lbl_cidr.setText(ip.getCidr());
+            lbl_ber.setText(ip.getBer());
+            lbl_Broad.setText(ip.getBroad());
+        
+            ip.toDez();
+            lbl_KleinsteIp.setText(ip.getBerDez());
+            lbl_Broadcast.setText(ip.getBroadDez());
         }
         
-        lbl_ipbin.setText(ip.getIpAdress());
-        lbl_cidr.setText(ip.getCidr());
-        lbl_ber.setText(ip.getBer());
-        lbl_Broad.setText(ip.getBroad());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtCIDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCIDRActionPerformed
@@ -278,6 +307,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbl_Broad;
+    private javax.swing.JLabel lbl_Broadcast;
+    private javax.swing.JLabel lbl_KleinsteIp;
     private javax.swing.JLabel lbl_ber;
     private javax.swing.JLabel lbl_cidr;
     private javax.swing.JLabel lbl_ipbin;

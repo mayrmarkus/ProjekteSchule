@@ -17,14 +17,22 @@ public class IpAdress {
     private String subnet;
 
     private String c;
-    private String cidr;
+    private String cidr = "";
     
     private String ber;
     private String broad = "";
     
-    private String berDez = "" + Integer.parseInt(ber,2);
-    private String broadDez = "" + Integer.parseInt(broad,2);
+    private String berDez;
+    private String broadDez;
 
+    public String getBerDez() {
+        return berDez;
+    }
+
+    public String getBroadDez() {
+        return broadDez;
+    }
+    
     public String getBer() {
         return ber;
     }
@@ -57,6 +65,73 @@ public class IpAdress {
         return cidr;
     }
 
+    public void toDez(){
+        String b = "";
+        String b1 = "";
+        String b2 = "";
+        String b3 = "";
+        String finber = "";
+        for (int i = 0; i < 32; i++) {
+            if (i < 8) {
+                b += "" + ber.charAt(i);
+                if (i == 7) {
+                    finber += Long.parseLong(b,2) + ".";
+                }
+            }
+            if (i > 7 && i < 16) {
+                b1 += "" + ber.charAt(i);
+                if (i == 15) {
+                    finber += Long.parseLong(b1,2) + ".";
+                }
+            }
+            if(i > 15 && i < 24){
+                b2 += "" + ber.charAt(i);
+                if (i == 23) {
+                    finber += Long.parseLong(b2,2) + ".";
+                }
+            }
+            if (i > 23 && i < 32) {
+                b3 += "" + ber.charAt(i);
+                if (i == 31) {
+                    finber += Long.parseLong(b3,2) + "";
+                }
+            }
+        }
+        berDez = finber;
+        String a = "";
+        String a1 = "";
+        String a2 = "";
+        String a3 = "";
+        
+        String finbroad = "";
+        for (int i = 0; i < 32; i++) {
+            if (i < 8) {
+                a += "" + broad.charAt(i);
+                if (i == 7) {
+                    finbroad += Long.parseLong(a,2) + ".";
+                }
+            }
+            if (i > 7 && i < 16) {
+                a1 += "" + broad.charAt(i);
+                if (i == 15) {
+                    finbroad += Long.parseLong(a1,2) + ".";
+                }
+            }
+            if(i > 15 && i < 24){
+                a2 += "" + broad.charAt(i);
+                if (i == 23) {
+                    finbroad += Long.parseLong(a2,2) + ".";
+                }
+            }
+            if (i > 23 && i < 32) {
+                a3 += "" + broad.charAt(i);
+                 if (i == 31) {
+                    finbroad += Long.parseLong(a3,2) + "";
+                }
+            }
+        }
+        broadDez = finbroad;
+    }
     
     public IpAdress(String cidr, int[] bytes) {
         this.c = cidr;
@@ -68,6 +143,7 @@ public class IpAdress {
 
     public IpAdress(int[] sub, int[] bytes) {
         this.dezsub = sub;
+        this.dezbytes = bytes;
         convertToBin();
         convertToBinSub();
         makeCidr();
@@ -81,7 +157,6 @@ public class IpAdress {
             } else {
                 cidr += 0;
             }
-            System.out.println(cidr);
         }
     }
 
@@ -180,7 +255,6 @@ public class IpAdress {
         }
 
         ber = logischBin;
-        
         calcBroad();
     }
 

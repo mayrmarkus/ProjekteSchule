@@ -41,12 +41,14 @@
                                   <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="lbl_ipbin" min="-2" max="-2" attributes="0"/>
                                   <Component id="lbl_cidr" min="-2" max="-2" attributes="0"/>
                                   <Component id="lbl_ber" min="-2" max="-2" attributes="0"/>
                                   <Component id="lbl_Broad" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_KleinsteIp" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_Broadcast" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -110,9 +112,15 @@
                   <Component id="lbl_Broad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_KleinsteIp" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_Broadcast" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -169,7 +177,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ber"/>
+        <Property name="text" type="java.lang.String" value="KleinsteIp"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_ipbin">
@@ -199,12 +207,22 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Autismus"/>
+        <Property name="text" type="java.lang.String" value="KleinsteIp"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kinder"/>
+        <Property name="text" type="java.lang.String" value="Broadcast"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_KleinsteIp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_Broadcast">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel11"/>
       </Properties>
     </Component>
   </SubComponents>
