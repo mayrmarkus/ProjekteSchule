@@ -29,7 +29,6 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblOutput = new javax.swing.JLabel();
         txtIP = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtCIDR = new javax.swing.JTextField();
@@ -37,6 +36,16 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtSubNet = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lbl_ipbin = new javax.swing.JLabel();
+        lbl_cidr = new javax.swing.JLabel();
+        lbl_ber = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lbl_Broad = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +57,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel2.setText("CIDR");
 
+        txtCIDR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCIDRActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +73,32 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1.setText("IP Adressse");
 
         jLabel3.setText("Subnetmask");
+
+        txtSubNet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSubNetActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Ipbin");
+
+        jLabel5.setText("CIDR");
+
+        jLabel6.setText("ber");
+
+        lbl_ipbin.setText("jLabel7");
+
+        lbl_cidr.setText("jLabel8");
+
+        lbl_ber.setText("jLabel9");
+
+        jLabel7.setText("Broadcast");
+
+        lbl_Broad.setText("jLabel8");
+
+        jLabel8.setText("Autismus");
+
+        jLabel9.setText("Kinder");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,6 +113,20 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl_ipbin)
+                                    .addComponent(lbl_cidr)
+                                    .addComponent(lbl_ber)
+                                    .addComponent(lbl_Broad)))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1)
@@ -80,9 +135,8 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtIP, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                                     .addComponent(txtCIDR)
-                                    .addComponent(txtSubNet)))
-                            .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                    .addComponent(txtSubNet))))))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,9 +155,27 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(24, 24, 24)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lbl_ipbin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lbl_cidr))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lbl_ber))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lbl_Broad))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,22 +194,42 @@ public class MainFrame extends javax.swing.JFrame {
         for (int i = 0; i < strBytes.length; i++) {
             bts[i] = Integer.parseInt(strBytes[i]);
         }
-        for (int i = 0; i < bts.length; i++) {
-            lblOutput.setText(bts[i] + " ");
-        }
-        
+
         String[]strSub = txtIP.getText().split("\\.");
         int[]btsSub = new int[strSub.length]; 
         for (int i = 0; i < strSub.length; i++) {
             btsSub[i] = Integer.parseInt(strSub[i]);
         }
-        for (int i = 0; i < btsSub.length; i++) {
-            lblOutput.setText(btsSub[i] + " ");
+        IpAdress ip = null;
+        IpAdress ip2 = null;
+        if (txtCIDR.getText().equals("")) {
+            ip2 = new IpAdress(btsSub, bts);
         }
-        IpAdress ip = new IpAdress(cidr, bts, btsSub);
+        if(txtSubNet.getText().equals("")){
+            ip = new IpAdress(cidr, bts);
+        }
         
-        lblOutput.setText(ip.toString());
+        lbl_ipbin.setText(ip.getIpAdress());
+        lbl_cidr.setText(ip.getCidr());
+        lbl_ber.setText(ip.getBer());
+        lbl_Broad.setText(ip.getBroad());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCIDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCIDRActionPerformed
+        // TODO add your handling code here:
+        if (txtSubNet.getText().equals("")) {
+            
+        }else
+            txtCIDR.setVisible(false);
+    }//GEN-LAST:event_txtCIDRActionPerformed
+
+    private void txtSubNetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubNetActionPerformed
+        // TODO add your handling code here:
+        if (txtCIDR.getText().equals("")) {
+            
+        }else
+            txtSubNet.setVisible(false);
+    }//GEN-LAST:event_txtSubNetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,7 +271,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lblOutput;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbl_Broad;
+    private javax.swing.JLabel lbl_ber;
+    private javax.swing.JLabel lbl_cidr;
+    private javax.swing.JLabel lbl_ipbin;
     private javax.swing.JTextField txtCIDR;
     private javax.swing.JTextField txtIP;
     private javax.swing.JTextField txtSubNet;
