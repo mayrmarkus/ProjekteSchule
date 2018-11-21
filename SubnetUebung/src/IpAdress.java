@@ -276,7 +276,7 @@ public class IpAdress {
 
     private void calcBroad() {
         if (!"0".equals(c)) {
-            cd=Integer.parseInt(c);
+            cd = Integer.parseInt(c);
         }
         for (int i = 0; i < cd; i++) {
             broad += ber.charAt(i);
