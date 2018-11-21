@@ -25,6 +25,13 @@ public class Spieler {
         konto = Double.parseDouble(JOptionPane.showInputDialog("Konto"));
     }
     
+    public boolean kontoPos(double k){
+        if (konto - k >= 0) {
+            return true;
+        }else
+            return false;
+    }
+    
     public String getvName() {
         return vName;
     }
@@ -50,6 +57,7 @@ public class Spieler {
     }
     
     public void setNewKonto(double konto){
+        kontoPos(konto);
         this.konto -= konto;
     }
     
