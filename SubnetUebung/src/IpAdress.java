@@ -18,13 +18,29 @@ public class IpAdress {
 
     private String c;
     private String cidr = "";
+    private int cd = 0;
     
     private String ber;
     private String broad = "";
     
     private String berDez;
     private String broadDez;
+    
+    private int host;
+    private int sub;
 
+    public int getHost() {
+        return host;
+    }
+
+    public int getSub() {
+        return sub;
+    }
+    
+    public int getCd() {
+        return cd;
+    }
+    
     public String getBerDez() {
         return berDez;
     }
@@ -152,10 +168,10 @@ public class IpAdress {
 
     private void makeCidr() {
         for (int i = 0; i < 32; i++) {
-            if (subnet.charAt(i) == 1) {
-                cidr += 1;
+            if (subnet.charAt(i) == 49) {
+                cd += 1;
             } else {
-                cidr += 0;
+                cd += 0;
             }
         }
     }
@@ -259,9 +275,25 @@ public class IpAdress {
     }
 
     private void calcBroad() {
-        for (int i = 0; i < 24; i++) {
+        if (!"0".equals(c)) {
+            cd=Integer.parseInt(c);
+        }
+        for (int i = 0; i < cd; i++) {
             broad += ber.charAt(i);
         }
-        broad += "11111111";
+        for (int i = cd; i < 32; i++) {
+            broad += "1";
+        }
+    }
+    
+    public void calcHost(){
+        if (!"0".equals(c)) {
+            cd=Integer.parseInt(c);
+        }
+        host = (int) Math.pow(2, (32 - cd))- 2;
+    }
+    
+    public void calcSub(){
+        sub = (int) Math.pow(2, cd) -2;
     }
 }
