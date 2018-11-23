@@ -297,9 +297,37 @@ public class Spielfeld extends javax.swing.JFrame {
                             .addComponent(lbl_low))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(93, 93, 93)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cb_Nr1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbl_Nr1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(24, 24, 24)
+                                                .addComponent(cb_Nr2))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbl_Nr2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cb_Nr3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbl_Nr3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cb_Nr4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbl_Nr4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cb_Nr5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbl_Nr5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cb_Nr6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbl_Nr6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(lbl_Field5)
                                             .addComponent(cb_Field5)
@@ -342,35 +370,7 @@ public class Spielfeld extends javax.swing.JFrame {
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(lbl_Field16)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(lbl_Field15))))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(58, 58, 58)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lbl_Nr1)
-                                            .addComponent(cb_Nr1))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(24, 24, 24)
-                                                .addComponent(cb_Nr2))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbl_Nr2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbl_Nr3)
-                                            .addComponent(cb_Nr3))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cb_Nr4)
-                                            .addComponent(lbl_Nr4))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cb_Nr5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbl_Nr5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cb_Nr6)
-                                            .addComponent(lbl_Nr6))))
+                                                        .addComponent(lbl_Field15)))))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -604,7 +604,7 @@ public class Spielfeld extends javax.swing.JFrame {
             counter++;
         }
         
-        if (counter < 3) 
+        if (counter < 4) 
             return true;
         else
             return false;
@@ -636,11 +636,13 @@ public class Spielfeld extends javax.swing.JFrame {
         lbl_Konto.setText("" + s.getKonto());
     }
     
-    public void kontoPl(JCheckBox a, JLabel b){
+    public void kontoPl(JCheckBox a, JLabel b, double geld){
         if (!s.kontoPos(0)) {
             JOptionPane.showConfirmDialog(rootPane, "Sie haben zu Wenig geld");
             a.setSelected(false);
             b.setText("");
+            s.setGKonto(geld);
+            lbl_Konto.setText(s.getKonto() + "");
         }
     }
     
@@ -673,7 +675,8 @@ public class Spielfeld extends javax.swing.JFrame {
             geldNr3 = Double.parseDouble(JOptionPane.showInputDialog("Betrag"));
             lbl_Nr3.setText(geldNr3 + "€");
             s.setNewKonto(geldNr3);
-            kontoPl(cb_Nr3, lbl_Nr3);
+            lbl_Konto.setText(s.getKonto() + "");
+            kontoPl(cb_Nr3, lbl_Nr3, geldNr3);
         }else{
             geldNr3 = 0;
             lbl_Nr3.setText("");
@@ -690,7 +693,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Nr5.setText(geldNr5 + "€");
             s.setNewKonto(geldNr5);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Nr5, lbl_Nr5);
+            kontoPl(cb_Nr5, lbl_Nr5, geldNr5);
         }else{
             geldNr5 = 0;
             lbl_Nr5.setText("");
@@ -707,7 +710,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Nr1.setText(geldNr1 + "€");
             s.setNewKonto(geldNr1);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Nr1, lbl_Nr1);
+            kontoPl(cb_Nr1, lbl_Nr1, geldNr1);
         }else{
             geldNr1 = 0;
             lbl_Nr1.setText("");
@@ -724,7 +727,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Nr2.setText(geldNr2 + "€");
             s.setNewKonto(geldNr2);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Nr2, lbl_Nr2);
+            kontoPl(cb_Nr2, lbl_Nr2, geldNr2);
         }else{
             geldNr2 = 0;
             lbl_Nr2.setText("");
@@ -741,7 +744,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Nr4.setText(geldNr4 + "€");
             s.setNewKonto(geldNr4);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Nr4, lbl_Nr4);
+            kontoPl(cb_Nr4, lbl_Nr4, geldNr4);
         }else{
             geldNr4 = 0;
             lbl_Nr4.setText("");
@@ -758,7 +761,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Nr6.setText(geldNr6 + "€");
             s.setNewKonto(geldNr6);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Nr6, lbl_Nr6);
+            kontoPl(cb_Nr6, lbl_Nr6, geldNr6);
         }else{
             geldNr6 = 0;
             lbl_Nr6.setText("");
@@ -774,7 +777,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field5.setText(geldField5 + "€");
             s.setNewKonto(geldField5);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field5, lbl_Field5);
+            kontoPl(cb_Field5, lbl_Field5, geldField5);
         }else{
             geldField5 = 0;
             lbl_Field5.setText("");
@@ -788,7 +791,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field6.setText(geldField6 + "€");
             s.setNewKonto(geldField6);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field6, lbl_Field6);
+            kontoPl(cb_Field6, lbl_Field6, geldField6);
         }else{
             geldField6 = 0;
             lbl_Field6.setText("");
@@ -802,7 +805,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field7.setText(geldField7 + "€");
             s.setNewKonto(geldField7);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field6, lbl_Field6);
+            kontoPl(cb_Field6, lbl_Field6, geldField7);
         }else{
             geldField7 = 0;
             lbl_Field7.setText("");
@@ -816,7 +819,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field8.setText(geldField8 + "€");
             s.setNewKonto(geldField8);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field8, lbl_Field8);
+            kontoPl(cb_Field8, lbl_Field8, geldField8);
         }else{
             geldField8 = 0;
             lbl_Field8.setText("");
@@ -830,7 +833,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field13.setText(geldField13 + "€");
             s.setNewKonto(geldField13);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field13, lbl_Field13);
+            kontoPl(cb_Field13, lbl_Field13, geldField13);
         }else{
             geldField13 = 0;
             lbl_Field13.setText("");
@@ -844,7 +847,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field14.setText(geldField14 + "€");
             s.setNewKonto(geldField14);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field14, lbl_Field14);
+            kontoPl(cb_Field14, lbl_Field14, geldField14);
         }else{
             geldField14 = 0;
             lbl_Field14.setText("");
@@ -858,7 +861,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field15.setText(geldField15 + "€");
             s.setNewKonto(geldField15);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field15, lbl_Field15);
+            kontoPl(cb_Field15, lbl_Field15, geldField15);
         }else{
             geldField15 = 0;
             lbl_Field15.setText("");
@@ -872,7 +875,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_Field16.setText(geldField16 + "€");
             s.setNewKonto(geldField16);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_Field16, lbl_Field16);
+            kontoPl(cb_Field16, lbl_Field16, geldField16);
         }else{
             geldField16 = 0;
             lbl_Field16.setText("");
@@ -887,17 +890,18 @@ public class Spielfeld extends javax.swing.JFrame {
         lbl_WZ2.setText(w.getWuerfel()[1] + "");
         lbl_WZ3.setText(w.getWuerfel()[2] + "");
         double gew = ueberpruefung(w);
-        if (gew < 0) {
+        if (gew > 0) {
+            s.setGKonto(gew);
             lbl_Gewinn.setText("Gewinn");
-            lbl_Gewinn.setBackground(Color.green);
+            lbl_Gewinn.setForeground(Color.green);
             lbl_GewinnAus.setText(gew + "");
         }else{
             lbl_Gewinn.setText("Verlust");
-            lbl_Gewinn.setBackground(Color.red);
+            lbl_Gewinn.setForeground(Color.red);
             lbl_GewinnAus.setText(gew + "");  
         }
         
-        reset();
+        //reset();
     }//GEN-LAST:event_btn_CommitActionPerformed
 
     private void cb_highActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_highActionPerformed
@@ -908,7 +912,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_high.setText(geldHigh + "€");
             s.setNewKonto(geldHigh);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_high, lbl_high);
+            kontoPl(cb_high, lbl_high, geldHigh);
         }else{
             geldHigh = 0;
             lbl_high.setText("");
@@ -923,7 +927,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_low.setText(geldLow + "€");
             s.setNewKonto(geldLow);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_low, lbl_low);
+            kontoPl(cb_low, lbl_low, geldLow);
         }else{
             geldLow = 0;
             lbl_low.setText("");
@@ -938,7 +942,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_odd.setText(geldOdd + "€");
             s.setNewKonto(geldOdd);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_odd, lbl_odd);
+            kontoPl(cb_odd, lbl_odd, geldOdd);
         }else{
             geldOdd = 0;
             lbl_odd.setText("");
@@ -953,7 +957,7 @@ public class Spielfeld extends javax.swing.JFrame {
             lbl_even.setText(geldEven + "€");
             s.setNewKonto(geldEven);
             lbl_Konto.setText(s.getKonto() + "");
-            kontoPl(cb_even, lbl_even);
+            kontoPl(cb_even, lbl_even, geldEven);
         }else{
             geldEven = 0;
             lbl_even.setText("");
@@ -1000,16 +1004,16 @@ public class Spielfeld extends javax.swing.JFrame {
             }
         }
         
-        if(Integer.parseInt(cb_Nr1.getText()) > 0 && counter1>0){
+        if(Integer.parseInt(cb_Nr1.getText()) > 0 && counter1 > 0){
         if (counter1 == 3) {
             geldNr += Integer.parseInt(cb_Nr1.getText()) * 10;
             geldNr += Integer.parseInt(cb_Nr1.getText());
         }else
-            geldNr = Integer.parseInt(cb_Nr1.getText()) * counter1;
+            geldNr += Integer.parseInt(cb_Nr1.getText()) * counter1;
             geldNr += Integer.parseInt(cb_Nr1.getText());
         }else{
         }
-        if(Integer.parseInt(cb_Nr2.getText())>0 && counter2>0){
+        if(Integer.parseInt(cb_Nr2.getText()) > 0 && counter2 > 0){
         if (counter2 == 3) {
             geldNr += Integer.parseInt(cb_Nr2.getText())* 10;
             geldNr += Integer.parseInt(cb_Nr2.getText());
@@ -1018,7 +1022,7 @@ public class Spielfeld extends javax.swing.JFrame {
             geldNr += Integer.parseInt(cb_Nr2.getText());
         }else{
         }
-        if(Integer.parseInt(cb_Nr3.getText())>0 && counter3>0){
+        if(Integer.parseInt(cb_Nr3.getText()) > 0 && counter3 > 0){
         if (counter3 == 3) {
             geldNr += Integer.parseInt(cb_Nr3.getText())* 10;
             geldNr += Integer.parseInt(cb_Nr3.getText());
@@ -1035,7 +1039,6 @@ public class Spielfeld extends javax.swing.JFrame {
             geldNr += Integer.parseInt(cb_Nr4.getText()) * counter4;
             geldNr += Integer.parseInt(cb_Nr4.getText());
         }else{
-         
         }
         if(Integer.parseInt(cb_Nr5.getText())>0 && counter5>0){
         if (counter5 == 3) {
@@ -1045,7 +1048,6 @@ public class Spielfeld extends javax.swing.JFrame {
             geldNr += Integer.parseInt(cb_Nr5.getText()) * counter5;
             geldNr += Integer.parseInt(cb_Nr5.getText());
         }else{
-            
         }
         if(Integer.parseInt(cb_Nr6.getText())>0 && counter6>0){
         if (counter6 == 3) {
@@ -1055,7 +1057,6 @@ public class Spielfeld extends javax.swing.JFrame {
             geldNr += Integer.parseInt(cb_Nr6.getText()) * counter6;
             geldNr += Integer.parseInt(cb_Nr6.getText());
         }else{
-            
         }
 
         double geldField = 0;
@@ -1099,7 +1100,7 @@ public class Spielfeld extends javax.swing.JFrame {
         }else if (cb_low.isShowing() && w.getSumme()%2 == 0) {
             geldOE += geldEven*2;
         }
-        
+
         return geldHL + geldOE + geldNr + geldField;
     }
     /**

@@ -5,6 +5,7 @@
  */
 package chukaluck;
 
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,26 +13,38 @@ import javax.swing.JOptionPane;
  * @author Markus_Mayr
  */
 public class Spieler {
-    
+
     private String vName;
     private String nName;
     private double konto;
 
-
-    
     public Spieler() {
-        vName = JOptionPane.showInputDialog("Vorname");
-        nName = JOptionPane.showInputDialog("Nachname");
-        konto = Double.parseDouble(JOptionPane.showInputDialog("Konto"));
+        boolean eingabe = true;
+        while (eingabe) {
+            try {
+                vName = JOptionPane.showInputDialog("Vorname");
+                nName = JOptionPane.showInputDialog("Nachname");
+                konto = Double.parseDouble(JOptionPane.showInputDialog("Konto"));
+                eingabe = false;
+            } catch (HeadlessException | NumberFormatException E) {
+                eingabe = true;
+            }
+            
+        }
     }
-    
-    public boolean kontoPos(double k){
+
+    public boolean kontoPos(double k) {
         if (konto - k >= 0) {
             return true;
-        }else
+        } else {
             return false;
+        }
     }
-    
+
+    public void setGKonto(double konto) {
+        this.konto += konto;
+    }
+
     public String getvName() {
         return vName;
     }
@@ -55,10 +68,10 @@ public class Spieler {
     public void setKonto(double konto) {
         this.konto = konto;
     }
-    
-    public void setNewKonto(double konto){
+
+    public void setNewKonto(double konto) {
         kontoPos(konto);
         this.konto -= konto;
     }
-    
+
 }
