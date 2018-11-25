@@ -13,21 +13,21 @@ public class IpAdress {
     int[] dezbytes;
     int[] dezsub;
 
-    private String ipAdress;
-    private String subnet;
+    private String ipAdress = "";
+    private String subnet = "";
 
-    private String c;
+    private String c = "";
     private String cidr = "";
     private int cd = 0;
     
-    private String ber;
+    private String ber = "";
     private String broad = "";
     
-    private String berDez;
-    private String broadDez;
+    private String berDez = "";
+    private String broadDez = "";
     
-    private int host;
-    private int sub;
+    private int host = 0;
+    private int sub = 0;
 
     public int getHost() {
         return host;
@@ -275,7 +275,7 @@ public class IpAdress {
     }
 
     private void calcBroad() {
-        if (!"0".equals(c)) {
+        if (!"".equals(c)) {
             cd = Integer.parseInt(c);
         }
         for (int i = 0; i < cd; i++) {
@@ -287,8 +287,8 @@ public class IpAdress {
     }
     
     public void calcHost(){
-        if (!"0".equals(c)) {
-            cd=Integer.parseInt(c);
+        if (!"".equals(c)) {
+            cd = Integer.parseInt(c);
         }
         host = (int) Math.pow(2, (32 - cd))- 2;
     }
