@@ -40,15 +40,25 @@ public class MinesweeperGUI extends JFrame{
                             buttons[i-1][j-1].setZahl(1);
                         }
                         if (j + 1 < 10) {
-                            buttons[i][j+1].setZahl(1);
+                            buttons[i-1][j+1].setZahl(1);
                         }
                         if (j + 1 < 10) {
                             buttons[i-1][j].setZahl(1);
                         }
-                        if (j + 1 <= 0) {
-                            buttons[i+1][j].setZahl(1);
-                        }
                     }
+                    
+//                    if (i + 1 <= 10) {
+//                        
+//                         if (j - 1 >= 0) {
+//                            buttons[i-1][j-1].setZahl(1);
+//                        }
+//                        if (j + 1 < 10) {
+//                            buttons[i-1][j+1].setZahl(1);
+//                        }
+//                        if (j + 1 < 10) {
+//                            buttons[i-1][j].setZahl(1);
+//                        }
+                    //}
                 }
             }
         }
