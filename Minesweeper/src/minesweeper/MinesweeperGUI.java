@@ -33,39 +33,54 @@ public class MinesweeperGUI extends JFrame{
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 if (buttons[i][j].isBomb()) {
-                    
+
                     if (i - 1 >= 0) {
-                        
+
                         if (j - 1 >= 0) {
-                            buttons[i-1][j-1].setZahl(1);
+                            buttons[i - 1][j - 1].setZahl(1);
                         }
                         if (j + 1 < 10) {
-                            buttons[i-1][j+1].setZahl(1);
+                            buttons[i - 1][j + 1].setZahl(1);
                         }
-                        if (j + 1 < 10) {
-                            buttons[i-1][j].setZahl(1);
-                        }
+                        buttons[i - 1][j].setZahl(1);
                     }
-                    
-                    if (i + 1 <= 10) {
-                        
-                         if (j - 1 >= 0) {
-                            buttons[i][j-1].setZahl(1);
+
+                    if (i + 1 < 10) {
+
+                        if (j - 1 >= 0) {
+                            buttons[i + 1][j - 1].setZahl(1);
                         }
                         if (j + 1 < 10) {
-                            buttons[i][j+1].setZahl(1);
+                            buttons[i + 1][j + 1].setZahl(1);
                         }
-                        
-                        if (j -1 >= 0) {
-                            buttons[i+1][j-1].setZahl(1);
-                        }
-                        if (j -1 <= 10) {
-                            buttons[i+1][j].setZahl(1);
-                        }
-                        if (j -1 <= 10) {
-                            buttons[i+1][j+1].setZahl(1);
-                        }
+                        buttons[i + 1][j].setZahl(1);
                     }
+
+                    if (j + 1 < 10) {
+                        buttons[i][j + 1].setZahl(1);
+                    }
+                    if (j - 1 >= 0) {
+                        buttons[i][j - 1].setZahl(1);
+                    }
+                }
+            }
+        }
+        
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (buttons[i][j].isBomb()) {
+                    buttons[i][j].setZahl(80);
+                }
+                if (buttons[i][j].getZahl() == 1) {
+                    buttons[i][j].setForeground(Color.blue);
+                }else if (buttons[i][j].getZahl() == 2) {
+                    buttons[i][j].setForeground(Color.decode("#006400"));
+                }else if (buttons[i][j].getZahl() == 3) {
+                    buttons[i][j].setForeground(Color.red);
+                }else if (buttons[i][j].getZahl() == 4) {
+                    buttons[i][j].setForeground(Color.MAGENTA);
+                }else if (buttons[i][j].getZahl() == 5) {
+                    buttons[i][j].setForeground(Color.decode("#8B0000"));
                 }
             }
         }
