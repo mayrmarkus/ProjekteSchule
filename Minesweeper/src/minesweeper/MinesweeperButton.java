@@ -15,10 +15,14 @@ public class MinesweeperButton extends JButton{
  
     private int zahl = 0;
     private boolean bomb = false;
+    private int posX = 0;
+    private int posY = 0;
 
-    public MinesweeperButton(int z) {
+    public MinesweeperButton(int z, int x, int y) {
         super();
         zahl = z;
+        posX = x;
+        posY = y;
     }
 
     
@@ -34,6 +38,9 @@ public class MinesweeperButton extends JButton{
         if (bomb) {
             this.setText("B");
         }else
+            if (zahl == 0) {
+            this.setText("");
+        }else
             this.setText(zahl+"");
     }
     
@@ -43,5 +50,21 @@ public class MinesweeperButton extends JButton{
     
     public boolean isBomb(){
         return bomb;
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
     }
 }

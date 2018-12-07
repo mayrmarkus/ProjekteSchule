@@ -8,6 +8,9 @@ package minesweeper;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,16 +20,17 @@ import javax.swing.JPanel;
  *
  * @author Markus_Mayr
  */
-public class MinesweeperGUI extends JFrame{
+public class MinesweeperGUI extends JFrame implements MouseListener{
     private JPanel rootPanel;
     private MinesweeperButton[][] buttons;
+    private ArrayList<MinesweeperButton> buttonsList = new ArrayList<MinesweeperButton>();
     
     public MinesweeperGUI(){
         buttons = new MinesweeperButton[10][10];
         initialize();
         placeBombs();
         value();
-        showAll();
+        //showAll();
     }
     
     private void value(){
@@ -107,7 +111,7 @@ public class MinesweeperGUI extends JFrame{
          
          for (int i = 0; i < 10; i++) {
              for (int j = 0; j < 10; j++) {
-                 buttons[i][j] = new MinesweeperButton(0);
+                 buttons[i][j] = new MinesweeperButton(0,i,j);
                  buttons[i][j].setSize(50, 50);
                  GridBagConstraints con = new GridBagConstraints();
                  con.gridx = i;
@@ -116,6 +120,7 @@ public class MinesweeperGUI extends JFrame{
                  con.weightx = 1;
                  con.weighty = 1;
                  rootPanel.add(buttons[i][j], con);
+                 buttons[i][j].addMouseListener(this);
              }
         }
     }
@@ -133,5 +138,61 @@ public class MinesweeperGUI extends JFrame{
                 i--;
         }
     }
-    
+
+    @Override
+    public void mouseClicked(MouseEvent me) {
+        MinesweeperButton a = (MinesweeperButton)me.getSource();
+        int x = a.getX();
+        int y = a.getY();
+        buttonsList.add(a);
+        while(!buttonsList.isEmpty()){
+            buttonsList.remove(0);
+            if (a.getZahl() > 0 && a.getZahl() < 70) {
+                a.showZahl();
+                a.setEnabled(false);
+            }else if (a.getZahl() == 0) {
+                a.setEnabled(false);
+                if (x-1 >= 1 && y-1 >= 0 && buttons[x-1][y-1].isEnabled()) {
+                    buttonsList.add(buttons[x-1][y-1]);
+                }
+                if (x-1 >= 1 && y-1 >= 0 && buttons[x-1][y].isEnabled()) {
+                    buttonsList.add(buttons[x-1][y]);
+                }
+                if (x-1 >= 1 && y-1 >= 0 && buttons[x][y-1].isEnabled()) {
+                    buttonsList.add(buttons[x][y-1]);
+                }
+                if (x-1 >= 1 && y-1 >= 0 && buttons[x+1][y+1].isEnabled()) {
+                    buttonsList.add(buttons[x+1][y+1]);
+                }
+                if (x-1 >= 1 && y-1 >= 0 && buttons[x+1][y].isEnabled()) {
+                    buttonsList.add(buttons[x+1][y]);
+                }
+                if (x-1 >= 1 && y-1 >= 0 && buttons[x][y+1].isEnabled()) {
+                    buttonsList.add(buttons[x][y+1]);
+                }
+            }else if (a.getZahl() > 70) {
+                showAll(); 
+            }
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+        
+    }
 }
