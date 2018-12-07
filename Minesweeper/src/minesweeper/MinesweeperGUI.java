@@ -30,7 +30,6 @@ public class MinesweeperGUI extends JFrame implements MouseListener{
         initialize();
         placeBombs();
         value();
-        //showAll();
     }
     
     private void value(){
@@ -96,6 +95,17 @@ public class MinesweeperGUI extends JFrame implements MouseListener{
                 buttons[i][j].showZahl();
                 if (buttons[i][j].isBomb()) {
                     buttons[i][j].setBackground(Color.red);
+                }
+            }
+        }
+    }
+    
+    private void showBombs(){
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (buttons[i][j].isBomb()) {
+                    buttons[i][j].showZahl();
+                    buttons[i][j].setForeground(Color.red);
                 }
             }
         }
@@ -171,7 +181,7 @@ public class MinesweeperGUI extends JFrame implements MouseListener{
                     buttonsList.add(buttons[x][y+1]);
                 }
             }else if (a.getZahl() > 70) {
-                showAll(); 
+                showBombs(); 
             }
         }
     }
