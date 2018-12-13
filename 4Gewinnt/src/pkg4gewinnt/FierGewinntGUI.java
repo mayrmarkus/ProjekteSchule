@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -17,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author Markus_Mayr
  */
-public class FierGewinntGUI extends JFrame implements MouseListener {
+public class FierGewinntGUI extends JFrame{
 
     private JPanel rootPanel;
     private FierGewinntLabel[][] label;
@@ -40,7 +39,7 @@ public class FierGewinntGUI extends JFrame implements MouseListener {
         this.setContentPane(rootPanel);
 
         for (int i = 0; i < 7; i++) {
-            button[i] = new FierGewinntButton();
+            button[i] = new FierGewinntButton(i);
             button[i].setSize(50, 50);
             GridBagConstraints con = new GridBagConstraints();
             con.gridx = i;
@@ -68,31 +67,10 @@ public class FierGewinntGUI extends JFrame implements MouseListener {
     }
 
     private void spielen() {
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        FierGewinntButton gew = (FierGewinntButton) e.getSource();
-        gew.getpo
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < 7; i++) {
+            if (button[i].action(evt, this)) {
+                
+            }
+        }
     }
 }
