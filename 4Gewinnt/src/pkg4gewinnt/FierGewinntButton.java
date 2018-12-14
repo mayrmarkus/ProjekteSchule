@@ -13,30 +13,14 @@ import javax.swing.JButton;
  * @author Markus_Mayr
  */
 public class FierGewinntButton extends JButton{
-    
-    private boolean istSet = false;
-    private int pos = 0;
-    
-    public void setColor(boolean spieler){
-        if (spieler) {
-            this.setBackground(Color.red);
-        }else
-            this.setBackground(Color.pink);
-    }
 
-    public int getPos() {
-        return pos;
+    private int posX = 0;
+
+    public int getPosX() {
+        return posX;
     }
 
     public FierGewinntButton(int x) {
-        super();
-        this.pos = x;
-    }
-    
-    public boolean isIstSet() {
-        return istSet;
-    }
-    public void setIstSet(boolean istSet) {
-        this.istSet = istSet;
+        this.posX = x;
     }
 }

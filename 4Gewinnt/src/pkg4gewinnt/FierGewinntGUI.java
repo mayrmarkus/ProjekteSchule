@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -16,8 +17,9 @@ import javax.swing.JPanel;
  *
  * @author Markus_Mayr
  */
-public class FierGewinntGUI extends JFrame{
+public class FierGewinntGUI extends JFrame implements MouseListener{
 
+    private boolean player = false;
     private JPanel rootPanel;
     private FierGewinntLabel[][] label;
     private FierGewinntButton[] button;
@@ -27,7 +29,6 @@ public class FierGewinntGUI extends JFrame{
         label = new FierGewinntLabel[6][7];
         button = new FierGewinntButton[7];
         initialize();
-        spielen();
     }
 
     private void initialize() {
@@ -48,6 +49,8 @@ public class FierGewinntGUI extends JFrame{
             con.weightx = 1;
             con.weighty = 1;
             rootPanel.add(button[i], con);
+            
+            button[i].addMouseListener(this);
         }
 
         for (int i = 0; i < 6; i++) {
@@ -56,21 +59,60 @@ public class FierGewinntGUI extends JFrame{
                 label[i][j].setSize(50, 50);
                 GridBagConstraints con = new GridBagConstraints();
                 con.gridx = j;
-                con.gridy = i;
+                con.gridy = i+1;
                 con.fill = GridBagConstraints.BOTH;
                 con.weightx = 1;
                 con.weighty = 1;
                 rootPanel.add(label[i][j], con);
-                label[i][j].setText("Hilfe");
+                label[i][j].setText("");
             }
         }
     }
 
-    private void spielen() {
-        for (int i = 0; i < 7; i++) {
-            if (button[i].action(evt, this)) {
-                
+    public void ueberprueffen(){
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (label[i][j].isOwned()) {
+                 
+                  
+                }
             }
         }
+    }
+    
+    @Override
+    public void mouseClicked(MouseEvent me) { 
+    }
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+        FierGewinntButton b = (FierGewinntButton)me.getSource();
+        int x = b.getPosX();
+        
+        for (int i = 5; i >= 0; i--) {
+            if (!label[i][x].isOwned()) {
+                label[i][x].setOpaque(true);
+                label[i][x].setOwned(true);
+                label[i][x].setPlayerColor(player);
+                player = !player;
+                if (i == 0) {
+                    button[x].setEnabled(false);
+                }
+                break;
+            }
+        }
+        ueberprueffen();
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {  
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
     }
 }

@@ -13,27 +13,23 @@ import javax.swing.JLabel;
  * @author Markus_Mayr
  */
 public class FierGewinntLabel extends JLabel{
-    
-    private boolean istSet = false;
+
     private int posX = 0;
     private int posY = 0;
+    private boolean isOwned = false;
     
-    public void setColor(boolean spieler){
-        if (spieler) {
+    public void setPlayerColor(boolean p){
+        if (p) {
             this.setBackground(Color.red);
         }else
-            this.setBackground(Color.pink);
+            this.setBackground(Color.green);
     }
 
     public FierGewinntLabel(int x, int y) {
-        super();
         this.posX = x;
         this.posY = y;
     }
-    
-    public boolean isIstSet() {
-        return istSet;
-    }
+
 
     public int getPosX() {
         return posX;
@@ -41,19 +37,13 @@ public class FierGewinntLabel extends JLabel{
 
     public int getPosY() {
         return posY;
+    } 
+
+    public boolean isOwned() {
+        return isOwned;
     }
 
-    public void setIstSet(boolean istSet) {
-        this.istSet = istSet;
+    public void setOwned(boolean isOwned) {
+        this.isOwned = isOwned;
     }
-
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-    
-    
 }
