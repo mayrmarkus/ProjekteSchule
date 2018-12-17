@@ -96,7 +96,7 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
                         }
                     }
                     
-                    //Vertikal
+                     //Vertical
                     if (i + 3 < 6) {
                         if (label[i][j].getBackground() == label[i+1][j].getBackground() &&
                                 label[i][j].getBackground() == label[i+2][j].getBackground() &&
@@ -115,10 +115,10 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
                     }
                     
                     //Schreg2
-                    if (i - 3 >= 0 && j - 3 >= 0) {
-                        if (label[i][j].getBackground() == label[i-1][j-1].getBackground() &&
-                                label[i][j].getBackground() == label[i-2][j-2].getBackground() &&
-                                label[i][j].getBackground() == label[i-3][j-3].getBackground()) {
+                    if (i - 3 >= 0 && j + 3 < 7) {
+                        if (label[i][j].getBackground() == label[i-1][j+1].getBackground() &&
+                                label[i][j].getBackground() == label[i-2][j+2].getBackground() &&
+                                label[i][j].getBackground() == label[i-3][j+3].getBackground()) {
                             setWinColor(label[i][j].getBackground());
                         }
                     }
