@@ -24,6 +24,8 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
     private FierGewinntLabel[][] label;
     private FierGewinntButton[] button;
     private boolean spieler = true;
+    
+    private String winColor = "";
 
     public FierGewinntGUI() {
         label = new FierGewinntLabel[6][7];
@@ -69,12 +71,55 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
         }
     }
 
-    public void ueberprueffen(){
+    private void setWinColor(Color a) {
+        if (a == Color.green) {
+            winColor = "Grün";
+        } else if (a == Color.red) {
+            winColor = "Rot";
+        }
+    }
+
+    public void ueberprueffen() {
+
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 if (label[i][j].isOwned()) {
-                 
-                  
+                    //Horizontal
+                    if (j + 3 < 7) {
+                        if (label[i][j].getBackground() == label[i][j+1].getBackground() &&
+                                label[i][j].getBackground() == label[i][j+2].getBackground() &&
+                                label[i][j].getBackground() == label[i][j+3].getBackground()) {
+                            setWinColor(label[i][j].getBackground());
+                            
+                        }
+                    }
+                    
+                    //Vertikal
+                    if (i + 3 < 6) {
+                        if (label[i][j].getBackground() == label[i+1][j].getBackground() &&
+                                label[i][j].getBackground() == label[i+2][j].getBackground() &&
+                                label[i][j].getBackground() == label[i+3][j].getBackground()) {
+                            setWinColor(label[i][j].getBackground());
+                        }
+                    }
+                    
+                    //Schreg1
+                    if (i + 3 < 6 && j + 3 < 7) {
+                        if (label[i][j].getBackground() == label[i+1][j+1].getBackground() &&
+                                label[i][j].getBackground() == label[i+2][j+2].getBackground() &&
+                                label[i][j].getBackground() == label[i+3][j+3].getBackground()) {
+                            setWinColor(label[i][j].getBackground());
+                        }
+                    }
+                    
+                    //Schreg2
+                    if (i - 3 < 6 && j - 3 < 7) {
+                        if (label[i][j].getBackground() == label[i-1][j-1].getBackground() &&
+                                label[i][j].getBackground() == label[i-2][j-2].getBackground() &&
+                                label[i][j].getBackground() == label[i-3][j-3].getBackground()) {
+                            setWinColor(label[i][j].getBackground());
+                        }
+                    }
                 }
             }
         }
