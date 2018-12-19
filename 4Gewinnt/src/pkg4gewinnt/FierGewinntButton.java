@@ -23,4 +23,11 @@ public class FierGewinntButton extends JButton{
     public FierGewinntButton(int x) {
         this.posX = x;
     }
+    
+    public void setPlayerColor(boolean p){
+        if (p) {
+            this.setBackground(Color.red);
+        }else
+            this.setBackground(Color.green);
+    }
 }

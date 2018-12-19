@@ -11,21 +11,20 @@ import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Markus_Mayr
  */
-public class FierGewinntGUI extends JFrame implements MouseListener{
+public class FierGewinntGUI extends JFrame implements MouseListener {
 
     private boolean player = false;
     private JPanel rootPanel;
     private FierGewinntLabel[][] label;
     private FierGewinntButton[] button;
     private boolean spieler = true;
-    
-    private String winColor = "";
 
     public FierGewinntGUI() {
         label = new FierGewinntLabel[6][7];
@@ -51,7 +50,7 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
             con.weightx = 1;
             con.weighty = 1;
             rootPanel.add(button[i], con);
-            
+
             button[i].addMouseListener(this);
         }
 
@@ -61,7 +60,7 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
                 label[i][j].setSize(50, 50);
                 GridBagConstraints con = new GridBagConstraints();
                 con.gridx = j;
-                con.gridy = i+1;
+                con.gridy = i + 1;
                 con.fill = GridBagConstraints.BOTH;
                 con.weightx = 1;
                 con.weighty = 1;
@@ -69,79 +68,101 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
                 label[i][j].setText("");
             }
         }
+        for (int j = 0; j < 7; j++) {
+                button[j].setPlayerColor(player);
+        }
     }
 
-    private void setWinColor(Color a) {
-         if (a == Color.green) {
-            JOptionPane.showConfirmDialog(null, winColor);
+    private void setWin(Color a) {
+        if (a == Color.green) {
+            if (JOptionPane.showConfirmDialog(null, "Grün hat gewonnen!") == 0) {
+                dispose();
+                FierGewinntGUI fier = new FierGewinntGUI();
+                fier.setVisible(true);
+            } else {
+                dispose();
+            }
         } else if (a == Color.red) {
-            JOptionPane.showConfirmDialog(null, winColor);
+            if (JOptionPane.showConfirmDialog(null, "Rot hat gewonnen!") == 0) {
+                dispose();
+                FierGewinntGUI fier = new FierGewinntGUI();
+                fier.setVisible(true);
+            } else {
+                dispose();
+            }
         }
     }
 
     public void ueberprueffen() {
-
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 if (label[i][j].isOwned()) {
                     //Horizontal
                     if (j + 3 < 7) {
-                        if (label[i][j].getBackground() == label[i][j+1].getBackground() &&
-                                label[i][j].getBackground() == label[i][j+2].getBackground() &&
-                                label[i][j].getBackground() == label[i][j+3].getBackground()) {
-                            setWinColor(label[i][j].getBackground());
-                            
+                        if (label[i][j].getBackground() == label[i][j + 1].getBackground()
+                                && label[i][j].getBackground() == label[i][j + 2].getBackground()
+                                && label[i][j].getBackground() == label[i][j + 3].getBackground()) {
+                            setWin(label[i][j].getBackground());
+
                         }
                     }
-                    
-                     //Vertical
+
+                    //Vertical
                     if (i + 3 < 6) {
-                        if (label[i][j].getBackground() == label[i+1][j].getBackground() &&
-                                label[i][j].getBackground() == label[i+2][j].getBackground() &&
-                                label[i][j].getBackground() == label[i+3][j].getBackground()) {
-                            setWinColor(label[i][j].getBackground());
+                        if (label[i][j].getBackground() == label[i + 1][j].getBackground()
+                                && label[i][j].getBackground() == label[i + 2][j].getBackground()
+                                && label[i][j].getBackground() == label[i + 3][j].getBackground()) {
+                            setWin(label[i][j].getBackground());
                         }
                     }
-                    
-                     //Schreg Aufwerts
+
+                    //Schreg Aufwerts
                     if (i + 3 < 6 && j + 3 < 7) {
-                        if (label[i][j].getBackground() == label[i+1][j+1].getBackground() &&
-                                label[i][j].getBackground() == label[i+2][j+2].getBackground() &&
-                                label[i][j].getBackground() == label[i+3][j+3].getBackground()) {
-                            setWinColor(label[i][j].getBackground());
+                        if (label[i][j].getBackground() == label[i + 1][j + 1].getBackground()
+                                && label[i][j].getBackground() == label[i + 2][j + 2].getBackground()
+                                && label[i][j].getBackground() == label[i + 3][j + 3].getBackground()) {
+                            setWin(label[i][j].getBackground());
                         }
                     }
-                    
+
                     //Schreg Abwerts
                     if (i - 3 >= 0 && j + 3 < 7) {
-                        if (label[i][j].getBackground() == label[i-1][j+1].getBackground() &&
-                                label[i][j].getBackground() == label[i-2][j+2].getBackground() &&
-                                label[i][j].getBackground() == label[i-3][j+3].getBackground()) {
-                            setWinColor(label[i][j].getBackground());
+                        if (label[i][j].getBackground() == label[i - 1][j + 1].getBackground()
+                                && label[i][j].getBackground() == label[i - 2][j + 2].getBackground()
+                                && label[i][j].getBackground() == label[i - 3][j + 3].getBackground()) {
+                            setWin(label[i][j].getBackground());
                         }
                     }
                 }
             }
         }
     }
-    
+
     @Override
-    public void mouseClicked(MouseEvent me) { 
+    public void mouseClicked(MouseEvent me) {
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
-        FierGewinntButton b = (FierGewinntButton)me.getSource();
+        FierGewinntButton b = (FierGewinntButton) me.getSource();
         int x = b.getPosX();
-        
+
         for (int i = 5; i >= 0; i--) {
             if (!label[i][x].isOwned()) {
                 label[i][x].setOpaque(true);
                 label[i][x].setOwned(true);
                 label[i][x].setPlayerColor(player);
+                for (int j = 0; j < 7; j++) {
+                    if (button[j].isEnabled())
+                        button[j].setPlayerColor(!player);
+                }
                 player = !player;
                 if (i == 0) {
                     button[x].setEnabled(false);
+                    for (int j = 0; j < 7; j++) {
+                    if (!button[j].isEnabled())
+                        button[j].setBackground(null);
+                }
                 }
                 break;
             }
@@ -154,7 +175,7 @@ public class FierGewinntGUI extends JFrame implements MouseListener{
     }
 
     @Override
-    public void mouseEntered(MouseEvent me) {  
+    public void mouseEntered(MouseEvent me) {
     }
 
     @Override
