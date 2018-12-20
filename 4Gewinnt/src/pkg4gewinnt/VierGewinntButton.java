@@ -12,7 +12,7 @@ import javax.swing.JButton;
  *
  * @author Markus_Mayr
  */
-public class FierGewinntButton extends JButton{
+public class VierGewinntButton extends JButton{
 
     private int posX = 0;
 
@@ -20,7 +20,7 @@ public class FierGewinntButton extends JButton{
         return posX;
     }
 
-    public FierGewinntButton(int x) {
+    public VierGewinntButton(int x) {
         this.posX = x;
     }
     

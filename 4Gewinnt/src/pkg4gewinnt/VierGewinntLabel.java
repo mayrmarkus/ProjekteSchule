@@ -12,7 +12,7 @@ import javax.swing.JLabel;
  *
  * @author Markus_Mayr
  */
-public class FierGewinntLabel extends JLabel{
+public class VierGewinntLabel extends JLabel{
 
     private int posX = 0;
     private int posY = 0;
@@ -25,7 +25,7 @@ public class FierGewinntLabel extends JLabel{
             this.setBackground(Color.green);
     }
 
-    public FierGewinntLabel(int x, int y) {
+    public VierGewinntLabel(int x, int y) {
         this.posX = x;
         this.posY = y;
     }
