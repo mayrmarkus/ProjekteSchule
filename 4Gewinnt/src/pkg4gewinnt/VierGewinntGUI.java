@@ -14,6 +14,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -76,7 +77,7 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
 
     private void setWin(Color a) {
         if (a == Color.green) {
-            if (JOptionPane.showConfirmDialog(null, "Grün hat gewonnen!") == 0) {
+            if (JOptionPane.showConfirmDialog(null, "Grün hat gewonnen! \nNochmal Spielen") == 0) {
                 dispose();
                 VierGewinntGUI fier = new VierGewinntGUI();
                 fier.setVisible(true);
@@ -84,7 +85,7 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
                 dispose();
             }
         } else if (a == Color.red) {
-            if (JOptionPane.showConfirmDialog(null, "Rot hat gewonnen!") == 0) {
+            if (JOptionPane.showConfirmDialog(null, "Rot hat gewonnen!\nNochmal Spielen") == 0) {
                 dispose();
                 VierGewinntGUI fier = new VierGewinntGUI();
                 fier.setVisible(true);
@@ -93,8 +94,22 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
             }
         }
     }
+    
+     private void setWin(int a) {
+         if (a == 42) {
+             if (JOptionPane.showConfirmDialog(null, "Unendschieden!\nNochmal Spielen") == 0) {
+                dispose();
+                VierGewinntGUI fier = new VierGewinntGUI();
+                fier.setVisible(true);
+            } else {
+                dispose();
+            }
+         }
+    }
 
     public void ueberprueffen() {
+        int unentschieden = 0;
+        
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 if (label[i][j].isOwned()) {
@@ -103,6 +118,10 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
                         if (label[i][j].getBackground() == label[i][j + 1].getBackground()
                                 && label[i][j].getBackground() == label[i][j + 2].getBackground()
                                 && label[i][j].getBackground() == label[i][j + 3].getBackground()) {
+                            label[i][j].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i][j+1].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i][j+2].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i][j+3].setBorder(new LineBorder(Color.yellow, 2));
                             setWin(label[i][j].getBackground());
 
                         }
@@ -113,6 +132,10 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
                         if (label[i][j].getBackground() == label[i + 1][j].getBackground()
                                 && label[i][j].getBackground() == label[i + 2][j].getBackground()
                                 && label[i][j].getBackground() == label[i + 3][j].getBackground()) {
+                            label[i][j].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i+1][j].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i+2][j].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i+3][j].setBorder(new LineBorder(Color.yellow, 2));
                             setWin(label[i][j].getBackground());
                         }
                     }
@@ -122,6 +145,10 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
                         if (label[i][j].getBackground() == label[i + 1][j + 1].getBackground()
                                 && label[i][j].getBackground() == label[i + 2][j + 2].getBackground()
                                 && label[i][j].getBackground() == label[i + 3][j + 3].getBackground()) {
+                            label[i][j].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i+1][j+1].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i+2][j+2].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i+3][j+3].setBorder(new LineBorder(Color.yellow, 2));
                             setWin(label[i][j].getBackground());
                         }
                     }
@@ -131,7 +158,19 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
                         if (label[i][j].getBackground() == label[i - 1][j + 1].getBackground()
                                 && label[i][j].getBackground() == label[i - 2][j + 2].getBackground()
                                 && label[i][j].getBackground() == label[i - 3][j + 3].getBackground()) {
+                            label[i][j].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i-1][j+1].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i-2][j+2].setBorder(new LineBorder(Color.yellow, 2));
+                            label[i-3][j+3].setBorder(new LineBorder(Color.yellow, 2));
                             setWin(label[i][j].getBackground());
+                        }
+                    }
+                    
+                    //Unentschieden
+                    if (label[i][j].isOwned()) {
+                        unentschieden++;
+                        if (unentschieden == 42) {
+                            setWin(unentschieden);
                         }
                     }
                 }
@@ -171,30 +210,6 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
         ueberprueffen();
     }
 
-//    public void mousePressed(MouseEvent me, int x) {
-//        for (int i = 5; i >= 0; i--) {
-//            if (!label[i][x].isOwned()) {
-//                label[i][x].setOpaque(true);
-//                label[i][x].setOwned(true);
-//                label[i][x].setPlayerColor(player);
-//                for (int j = 0; j < 7; j++) {
-//                    if (button[j].isEnabled())
-//                        button[j].setPlayerColor(!player);
-//                }
-//                player = !player;
-//                if (i == 0) {
-//                    button[x].setEnabled(false);
-//                    for (int j = 0; j < 7; j++) {
-//                    if (!button[j].isEnabled())
-//                        button[j].setBackground(null);
-//                }
-//                }
-//                break;
-//            }
-//        }
-//        ueberprueffen();
-//    }
-
     @Override
     public void mouseReleased(MouseEvent me) {
     }
@@ -206,56 +221,4 @@ public class VierGewinntGUI extends JFrame implements MouseListener {
     @Override
     public void mouseExited(MouseEvent me) {
     }
-    
-//    private void ki(){
-//        int place = 0;
-//        Random ran = new Random();
-//        place = ran.nextInt(7);
-//        mousePressed(null, place);
-//    }
-    
-//     public VierGewinntLabel ueberprueffenKI() {
-//        for (int i = 0; i < 6; i++) {
-//            for (int j = 0; j < 7; j++) {
-//                if (label[i][j].isOwned()) {
-//                    //Horizontal
-//                    if (j + 3 < 7) {
-//                        if (label[i][j].getBackground() == label[i][j + 1].getBackground()
-//                                && label[i][j].getBackground() == label[i][j + 2].getBackground()
-//                                && !label[i][j].isOwned()) {
-//                            return label[i][j];
-//                        }
-//                    }
-//
-//                    //Vertical
-//                    if (i + 3 < 6) {
-//                        if (label[i][j].getBackground() == label[i + 1][j].getBackground()
-//                                && label[i][j].getBackground() == label[i + 2][j].getBackground()
-//                                && !label[i][j].isOwned()) {
-//                            return label[i][j];
-//                        }
-//                    }
-//
-//                    //Schreg Aufwerts
-//                    if (i + 3 < 6 && j + 3 < 7) {
-//                        if (label[i][j].getBackground() == label[i + 1][j + 1].getBackground()
-//                                && label[i][j].getBackground() == label[i + 2][j + 2].getBackground()
-//                                && !label[i][j].isOwned()) {
-//                            return label[i][j];
-//                        }
-//                    }
-//
-//                    //Schreg Abwerts
-//                    if (i - 3 >= 0 && j + 3 < 7) {
-//                        if (label[i][j].getBackground() == label[i - 1][j + 1].getBackground()
-//                                && label[i][j].getBackground() == label[i - 2][j + 2].getBackground()
-//                                && !label[i - 3][j + 3].isOwned()) {
-//                            return label[i][j];
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return null;
-//    }
 }
