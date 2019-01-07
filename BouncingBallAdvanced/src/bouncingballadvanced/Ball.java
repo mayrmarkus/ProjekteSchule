@@ -12,49 +12,36 @@ import java.awt.Graphics;
  *
  * @author Administrator
  */
-public class Ball {
- 
+public class BallCage {
     
-   int x, y;           // Ball's center x and y (package access)
-   int speedX, speedY; // Ball's speed per step in x and y (package access)
-   int radius;         // Ball's radius (package access)
-   private Color color; 
+    
+   int width, height; 
+   private Color colorFilled;   
+   private Color colorBorder;   
 
-    public Ball(int x, int y, int speedX, int speedY, int radius, Color color) {
-        this.x = x;
-        this.y = y;
-        this.speedX = speedX;
-        this.speedY = speedY;
-        this.radius = radius;
-        this.color = color;
-    }
-    
-    public void draw(Graphics g) {
-      g.setColor(color);
-      g.fillOval((x - radius), (y - radius), (2 * radius), (2 * radius));
+    public BallCage(int width, int height, Color colorFilled, Color colorBorder) {
+        this.width = width;
+        this.height = height;
+        this.colorFilled = colorFilled;
+        this.colorBorder = colorBorder;
     }
    
-    public void move(BallCage cage){
-    
-        this.x += this.speedX;
-        this.y += this.speedY;   
-        
-        if (x < 1) {
-            speedX = -speedX; // Reflect along normal
-            x = 1;     // Re-position the ball at the edge
-        } else if (x > cage.getWidth()-1) {
-            speedX = -speedX;
-            x = cage.getWidth()-1;
-        }
-      // May cross both x and y bounds
-        if (y < 1) {
-            speedY = -speedY;
-            y = 1;
-        } else if (y > cage.getHeight()-1) {
-            speedY = -speedY;
-            y = cage.getHeight()-1;
-        }
-    
+   public void draw(Graphics g) {
+      g.setColor(colorFilled);
+      g.fillRect(1, 1, width-1, height-1);
+      
+      g.setColor(colorBorder);
+      g.drawRect(1, 1, width-1, height-1);
+      
+   }
+
+    public int getWidth() {
+        return width;
     }
-    
+
+    public int getHeight() {
+        return height;
+    }
+   
+   
 }
