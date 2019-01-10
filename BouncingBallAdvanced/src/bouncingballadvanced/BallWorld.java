@@ -7,7 +7,11 @@ package bouncingballadvanced;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,66 +20,97 @@ import javax.swing.JFrame;
  *
  * @author Administrator
  */
-public class BallWorld extends JFrame{
-    
-    
+public class BallWorld extends JFrame {
+
     private BallCage cage;
     private DrawPanel panel;
-    private ArrayList<Ball> baelle;
-    private JButton bt_add;
-    
-    public BallWorld(int w, int h){
-    	
-    	baelle = new ArrayList<>();
-        
-        this.setSize(w,h);
+    private ArrayList<Shape> shapes;
+    private JButton add_button;
+    private JButton remove_button;
+
+    public BallWorld(int h, int w) {
+
+        shapes = new ArrayList<>();
+
+        this.setSize(h, w);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        cage = new BallCage(w, h, Color.BLACK, Color.orange);
+
+        cage = new BallCage(h, w, Color.BLACK, Color.orange);
         panel = new DrawPanel(w, h, cage);
-        
+
         this.setLayout(new BorderLayout());
         this.add(panel, BorderLayout.CENTER);
-        
+
         Ball b1 = new Ball(5, 5, 5, 5, 5, Color.yellow);
-        baelle.add(b1);
-        panel.addBall(b1);
-        
-        Ball b2 = new Ball(50, 5, 5, 5, 8, Color.blue);
-        baelle.add(b2);
-        panel.addBall(b2);
-        
-        Ball b3 = new Ball(75, 75, 5, 5, 7, Color.orange);
-        baelle.add(b3);
-        panel.addBall(b3);
-        
-        bt_add = new JButton();
-        bt_add.setSize(50,30);
-        bt_add.setText("ADD");
-    
+        shapes.add(b1);
+        panel.addShape(b1);
+
+        add_button = new JButton();
+
+        add_button.setText("ADD");
+        add_button.setBounds(50, 50, 100, 30);
+        this.add(add_button, BorderLayout.WEST);
+
+        remove_button = new JButton();
+
+        remove_button.setText("REMOVE");
+        add_button.setBounds(50, 50, 100, 30);
+        this.add(remove_button, BorderLayout.EAST);
+
+        remove_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Random ran = new Random();
+                int a = ran.nextInt(shapes.size());
+                panel.removeBall(shapes.get(a));
+                shapes.remove(a);
+                
+            }
+        });
+
+        add_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Random ran = new Random();
+                Ball b = new Ball(ran.nextInt(1000), ran.nextInt(1000), ran.nextInt(10),
+                        ran.nextInt(10)+1, ran.nextInt(50)+3, new Color(ran.nextInt(255), ran.nextInt(255), ran.nextInt(255)));
+                shapes.add(b);
+                panel.addShape(b);
+                Rectangle r = new Rectangle(ran.nextInt(1000), ran.nextInt(1000), ran.nextInt(10), ran.nextInt(10),
+                        ran.nextInt(50)+3, ran.nextInt(50)+3, new Color(ran.nextInt(255), ran.nextInt(255), ran.nextInt(255)));
+                shapes.add(r);
+                panel.addShape(r);
+            }
+        });
     }
-    
-    
+
     public void gameStart() {
-        
-        Thread gameThread = new Thread(){
-            public void run(){
-                while (true){
+        Thread gamethread = new Thread() {
+
+            public void run() {
+                while (true) {
                     gameUpdate();
+
                     repaint();
+
                     try {
                         Thread.sleep(1000 / 50);
-                    } catch (InterruptedException ex) {}
+                    } catch (InterruptedException ex) {
+
+                    }
                 }
             }
         };
-        gameThread.start();
+
+        gamethread.start();
+
     }
-    
+
     public void gameUpdate() {
-    
-        for(int i=0;i<baelle.size();i++){
-             baelle.get(i).move(cage);
-         }
+
+        for (int i = 0; i < shapes.size(); i++) {
+            shapes.get(i).move(cage);
+        }
+
     }
 }

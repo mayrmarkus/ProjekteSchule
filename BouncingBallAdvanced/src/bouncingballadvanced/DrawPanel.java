@@ -20,7 +20,7 @@ public class DrawPanel extends JPanel{
     private int panelWidth;
     private int panelHeight;
     
-    private ArrayList<Ball> baelle;
+    private ArrayList<Shape> shapes;
     private BallCage cage;
     
     public DrawPanel(int w, int h, BallCage cage){
@@ -28,12 +28,16 @@ public class DrawPanel extends JPanel{
         panelHeight = h;
         panelWidth = w;
         this.cage = cage;
-        baelle = new ArrayList();
+        shapes = new ArrayList();
     }
     
-    public void addBall(Ball b){
+    public void addShape(Shape b){
     
-        baelle.add(b);
+        shapes.add(b);
+    }
+    
+    public void removeBall(Shape i){
+        shapes.remove(i);
     }
     
     @Override
@@ -41,8 +45,8 @@ public class DrawPanel extends JPanel{
          super.paintComponent(g);    // Paint background
          // Draw the box and the ball
          cage.draw(g);
-         for(int i=0;i<baelle.size();i++){
-             baelle.get(i).draw(g);
+         for(int i=0;i<shapes.size();i++){
+             shapes.get(i).draw(g);
          }
     }
   

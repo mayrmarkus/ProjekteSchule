@@ -15,7 +15,11 @@ public class BouncingBallAdvanced {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+    	BallWorld bw = new BallWorld(1000,1000);
+    	bw.pack();
+    	bw.setVisible(true);
+    	bw.gameStart();
+    	
     }
     
 }
