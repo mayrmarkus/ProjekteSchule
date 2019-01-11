@@ -22,13 +22,15 @@ public class DrawPanel extends JPanel{
     
     private ArrayList<Shape> shapes;
     private BallCage cage;
+    private Shooter shooter;
     
-    public DrawPanel(int w, int h, BallCage cage){
+    public DrawPanel(int w, int h, BallCage cage, Shooter s){
     
         panelHeight = h;
         panelWidth = w;
         this.cage = cage;
         shapes = new ArrayList();
+        shooter = s;
     }
     
     public void addShape(Shape b){
@@ -45,6 +47,7 @@ public class DrawPanel extends JPanel{
          super.paintComponent(g);    // Paint background
          // Draw the box and the ball
          cage.draw(g);
+         shooter.draw(g);
          for(int i=0;i<shapes.size();i++){
              shapes.get(i).draw(g);
          }

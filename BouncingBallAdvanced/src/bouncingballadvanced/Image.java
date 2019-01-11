@@ -54,9 +54,9 @@ public class Image implements Shape{
         if (y < 1) {
             speedY = -speedY;
             y = 1;
-        } else if (y > cage.getHeight()-img.getHeight()) {
+        } else if (y > cage.getHeight()-img.getHeight()-150) {
             speedY = -speedY;
-            y = cage.getHeight()-img.getHeight();
+            y = cage.getHeight()-img.getHeight()-150;
         }
     }
 

@@ -44,9 +44,9 @@ public class Rectangle implements Shape{
         if (y < 1) {
             speedY = -speedY;
             y = 1;
-        } else if (y > cage.getHeight()-height) {
+        } else if (y > cage.getHeight()-height-150) {
             speedY = -speedY;
-            y = cage.getHeight()-height;
+            y = cage.getHeight()-height-150;
         }
     }
 

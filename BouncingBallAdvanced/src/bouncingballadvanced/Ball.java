@@ -52,9 +52,9 @@ public class Ball implements Shape{
         if (y < radius) {
             speedY = -speedY;
             y = radius;
-        } else if (y > cage.getHeight()-radius) {
+        } else if (y > cage.getHeight()-radius-150) {
             speedY = -speedY;
-            y = cage.getHeight()-radius;
+            y = cage.getHeight()-radius-150;
         }
     
     }

@@ -29,40 +29,43 @@ public class BallWorld extends JFrame {
     private JButton remove_button;
     private JButton add_buttonRect;
     private JButton add_buttonImg;
+    private int windowhight;
+    private int windowwidth;
+    
+    private Shooter shooter;
     
     Random ran = new Random();
 
-    public BallWorld(int h, int w) {
+    public BallWorld(int w, int h) {
 
         shapes = new ArrayList<>();
 
-        this.setSize(h, w);
+        windowhight = h;
+        windowwidth = w;
+        shooter = new Shooter((windowwidth-50)/2, windowhight -50, 5, 60, 25, Color.yellow);
+        
+        this.setSize(w, h);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        cage = new BallCage(h, w, Color.BLACK, Color.orange);
-        panel = new DrawPanel(w, h, cage);
+        cage = new BallCage(w, h, Color.BLACK, Color.orange);
+        panel = new DrawPanel(w, h, cage, shooter);
 
         this.setLayout(new BorderLayout());
         this.add(panel, BorderLayout.CENTER);
 
-        Ball b1 = new Ball(5, 5, 5, 5, 5, Color.yellow);
-        shapes.add(b1);
-        panel.addShape(b1);
-
-        add_buttonBall = new JButton();
-        add_buttonBall.setText("ADD");
-        add_buttonBall.setBounds(50, 50, 100, 30);
-        this.add(add_buttonBall, BorderLayout.WEST);
+//        Ball b1 = new Ball(5, 5, 5, 5, 5, Color.yellow);
+//        shapes.add(b1);
+//        panel.addShape(b1);
         
-        add_buttonRect = new JButton();
-        add_buttonRect.setText("ADD Rect");
-        add_buttonRect.setBounds(50, 50, 100, 30);
-        this.add(add_buttonRect, BorderLayout.WEST);
-        
-        add_buttonBall = new JButton();
-        add_buttonBall.setText("ADD Ball");
-        add_buttonBall.setBounds(50, 50, 100, 30);
-        this.add(add_buttonBall, BorderLayout.WEST);
+//        add_buttonRect = new JButton();
+//        add_buttonRect.setText("ADD Rect");
+//        add_buttonRect.setBounds(50, 50, 100, 30);
+//        this.add(add_buttonRect, BorderLayout.WEST);
+//        
+//        add_buttonBall = new JButton();
+//        add_buttonBall.setText("ADD Ball");
+//        add_buttonBall.setBounds(50, 50, 100, 30);
+//        this.add(add_buttonBall, BorderLayout.WEST);
         
         add_buttonImg = new JButton();
         add_buttonImg.setText("ADD Img");
@@ -71,7 +74,7 @@ public class BallWorld extends JFrame {
 
         remove_button = new JButton();
         remove_button.setText("REMOVE");
-        add_buttonBall.setBounds(50, 50, 100, 30);
+        remove_button.setBounds(50, 50, 100, 30);
         this.add(remove_button, BorderLayout.EAST);
 
         remove_button.addActionListener(new ActionListener() {
@@ -82,7 +85,8 @@ public class BallWorld extends JFrame {
                     int a = ran.nextInt(shapes.size());
                     panel.removeBall(shapes.get(a));
                     shapes.remove(a);
-                }
+                }else
+                    System.out.println("Dont try to remove something that doesn't exist!");
             }
         });
 
@@ -96,25 +100,26 @@ public class BallWorld extends JFrame {
             }
         });
         
-        add_buttonRect.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                Rectangle r = new Rectangle(ran.nextInt(1000), ran.nextInt(1000), ran.nextInt(10)+1, ran.nextInt(10)+1,
-                        ran.nextInt(50)+3, ran.nextInt(50)+3, new Color(ran.nextInt(255), ran.nextInt(255), ran.nextInt(255)));
-                shapes.add(r);
-                panel.addShape(r);
-            }
-        });
-        add_buttonBall.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Ball b = new Ball(ran.nextInt(1000), ran.nextInt(1000), ran.nextInt(10)+1,
-                        ran.nextInt(10)+1, ran.nextInt(50)+3, new Color(ran.nextInt(255), ran.nextInt(255), ran.nextInt(255)));
-                shapes.add(b);
-                panel.addShape(b);
-            }
-        });
+//        add_buttonRect.addActionListener(new ActionListener() {
+//
+//            @Override
+//            public void actionPerformed(ActionEvent ae) {
+//                Rectangle r = new Rectangle(ran.nextInt(1000), ran.nextInt(1000), ran.nextInt(10)+1, ran.nextInt(10)+1,
+//                        ran.nextInt(50)+3, ran.nextInt(50)+3, new Color(ran.nextInt(255), ran.nextInt(255), ran.nextInt(255)));
+//                shapes.add(r);
+//                panel.addShape(r);
+//            }
+//        });
+//        add_buttonBall.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Ball b = new Ball(ran.nextInt(1000), ran.nextInt(1000), ran.nextInt(10)+1,
+//                        ran.nextInt(10)+1, ran.nextInt(50)+3, new Color(ran.nextInt(255), ran.nextInt(255), ran.nextInt(255)));
+//                shapes.add(b);
+//                panel.addShape(b);
+//            }
+//        });
+        
     }
 
     public void gameStart() {
