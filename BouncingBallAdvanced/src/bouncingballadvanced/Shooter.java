@@ -17,6 +17,7 @@ public class Shooter {
     private int speedX;
     private int width, height;
     private Color color;
+    private int currentDirection = 1;
 
     public Shooter(int x, int y, int speedX, int width, int height, Color color) {
         this.x = x;
@@ -28,14 +29,16 @@ public class Shooter {
     }
 
 
-    public void move(BallCage cage) {
-        this.x += this.speedX; 
+    public void move(BallCage cage, int direction) {
+        if(direction != currentDirection){
+            speedX = -speedX;
+            currentDirection = direction;
+        }
+        this.x += this.speedX;
         
         if (x < 1) {
-            speedX = -speedX; // Reflect along normal
-            x = 1;     // Re-position the ball at the edge
+            x = 1;
         } else if (x > cage.getWidth()-width) {
-            speedX = -speedX;
             x = cage.getWidth()-width;
         }
     }
@@ -43,5 +46,9 @@ public class Shooter {
     public void draw(Graphics g) {
         g.setColor(color);
         g.fillRect(x, y, width, height);
+    }
+
+    void shoot(BallWorld a) {
+        
     }
 }

@@ -10,6 +10,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -20,7 +22,7 @@ import javax.swing.JFrame;
  *
  * @author Administrator
  */
-public class BallWorld extends JFrame {
+public class BallWorld extends JFrame implements KeyListener{
 
     private BallCage cage;
     private DrawPanel panel;
@@ -38,11 +40,13 @@ public class BallWorld extends JFrame {
 
     public BallWorld(int w, int h) {
 
+        addKeyListener(this);
+        
         shapes = new ArrayList<>();
 
         windowhight = h;
         windowwidth = w;
-        shooter = new Shooter((windowwidth-50)/2, windowhight -50, 5, 60, 25, Color.yellow);
+        shooter = new Shooter((windowwidth-50)/2, windowhight -50, 20, 60, 25, Color.yellow);
         
         this.setSize(w, h);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,11 +75,13 @@ public class BallWorld extends JFrame {
         add_buttonImg.setText("ADD Img");
         add_buttonImg.setBounds(50, 50, 100, 30);
         this.add(add_buttonImg, BorderLayout.WEST);
+        add_buttonImg.setFocusable(false);
 
         remove_button = new JButton();
         remove_button.setText("REMOVE");
         remove_button.setBounds(50, 50, 100, 30);
         this.add(remove_button, BorderLayout.EAST);
+        remove_button.setFocusable(false);
 
         remove_button.addActionListener(new ActionListener() {
             @Override
@@ -150,5 +156,26 @@ public class BallWorld extends JFrame {
             shapes.get(i).move(cage);
         }
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+        if (ke.getKeyChar() == 'a') {
+            shooter.move(cage, -1);
+        }else if(ke.getKeyChar() == 'd'){
+            shooter.move(cage, 1);
+        }else if(ke.getKeyChar() == ' '){
+            shooter.shoot(this);
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+        
     }
 }
