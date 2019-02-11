@@ -19,32 +19,51 @@ public class Timer implements Runnable{
     private int minuten = 0;
     private TimerGUI gui;
     
+    private boolean status = false;
+    private boolean reset = false;
+    
     public Timer(TimerGUI tgui){
         gui = tgui;
     }
     
-    @Override
-    public void run() {
-        while (true) { 
-            
-            if (ms == 999) {
-                ms = 0;
-                sekunden++;
-            }
-            if (sekunden == 59) {
-                sekunden = 0;
-                minuten++;
-            }
-            
-            try {
-                Thread.sleep(1);
-                ms++;
-                
-                gui.setOutput(minuten+"", sekunden+"", ms+"");
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Timer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+    public void reset(){
+    	ms = 0;
+    	sekunden = 0;
+    	minuten = 0;
+    }
+
+	@Override
+	public void run() {
+
+		while (true) {
+			status = gui.getStatus();
+			reset = gui.setReset();
+				
+			if (reset) {
+				reset();
+				reset = false;
+			}else if(status){
+
+				if (ms == 999) {
+					ms = 0;
+					sekunden++;
+				}
+				if (sekunden == 59) {
+					sekunden = 0;
+					minuten++;
+				}
+								
+				try {
+					Thread.sleep(1);
+					ms++;
+					
+				} catch (InterruptedException ex) {
+					Logger.getLogger(Timer.class.getName()).log(Level.SEVERE, null, ex);
+				}
+			}
+			gui.setOutput(minuten + "", sekunden + "", ms + "");
+		}
+
     }
 
     public static void main(String[] args){
