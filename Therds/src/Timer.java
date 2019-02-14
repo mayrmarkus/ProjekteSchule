@@ -41,7 +41,7 @@ public class Timer implements Runnable{
 				
 			if (reset) {
 				reset();
-				reset = false;
+                                reset = gui.setFReset();
 			}else if(status){
 
 				if (ms == 999) {
@@ -63,7 +63,6 @@ public class Timer implements Runnable{
 			}
 			gui.setOutput(minuten + "", sekunden + "", ms + "");
 		}
-
     }
 
     public static void main(String[] args){

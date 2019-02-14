@@ -83,8 +83,12 @@ public class TimerGUI extends JFrame{
     
 	protected boolean setReset() {
 		return reset;
-		
 	}
+        
+        public boolean setFReset(){
+            reset = false;
+            return reset;
+        }
 	
 	public void setOutput(String minuten, String sekunden, String ms){
         output.setText(minuten + ":" + sekunden + ":" + ms);
