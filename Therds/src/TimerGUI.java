@@ -49,6 +49,7 @@ public class TimerGUI extends JFrame{
         for(int i = 0; i < button.length; i++){
         button[i] = new JButton();
         button[i].setBounds(i*100, 1, 100, 50);
+        button[i].setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         panel.add(button[i]);
         }
         button[0].setText("Start");

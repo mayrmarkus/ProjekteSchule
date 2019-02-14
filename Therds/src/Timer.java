@@ -44,7 +44,7 @@ public class Timer implements Runnable{
                                 reset = gui.setFReset();
 			}else if(status){
 
-				if (ms == 999) {
+				if (ms == 900) {
 					ms = 0;
 					sekunden++;
 				}
