@@ -6,29 +6,45 @@
 package producerconsumerproblem;
 
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Markus_Mayr
  */
-public class Parkhaus extends Thread{
-    
-    Vector parkplaetze;
+public class Parkhaus extends Thread {
+
+    private Vector<Auto> parkplaetze;
     private int verbleibende;
-    
-    public Parkhaus(Vector v){
-        
+
+    public int getFreiePlätze(){
+        return verbleibende;
     }
     
-    public void run(){
-        
+    public Parkhaus(Vector v, int verbleibende) {
+        parkplaetze = v;
+        this.verbleibende = verbleibende;
+    }
+
+    public void run() {
+        while (true) {            
+            System.out.println("Es sind noch " + verbleibende + " vorhanden!");
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Parkhaus.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
-    public void hineinfahren(){
+        
+    public void hineinfahren() {
         verbleibende--;
+        //notify();
     }
-    
-    public void hinausfahren(){
+
+    public void hinausfahren() {
         verbleibende++;
     }
 }

@@ -6,6 +6,8 @@
 package producerconsumerproblem;
 
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,12 +20,28 @@ public class ProducerConsumerProblem {
      */
     public static void main(String[] args) {
         
-        Vector v = new Vector();
-        Producer p = new Producer(v);
-        Consumer c = new Consumer(v);
+//        Vector v = new Vector();
+//        Producer p = new Producer(v);
+//        Consumer c = new Consumer(v);
+//        
+//        p.start();
+//        c.start();
         
-        p.start();
-        c.start();
+        Vector<Auto> parkplaetze = new Vector();
+        Parkhaus pa = new Parkhaus(parkplaetze, 20);
+        pa.start();
+        for (int i = 0; i < 50; i++) {
+            Auto a = new Auto(parkplaetze, pa);
+            a.start();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ProducerConsumerProblem.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        
     }
     
 }
