@@ -31,9 +31,11 @@ public class Auto extends Thread {
 
     public void run() {
         if (parklaetze.size() < 5) {
+            synchronized(parklaetze){
             garage.hineinfahren();
             parklaetze.add(this);
             System.out.println("Auto " + meineNr + " ist eingefahren");
+            }
             boolean geparkt = true;
             while (geparkt) {
 
@@ -47,7 +49,6 @@ public class Auto extends Thread {
             parklaetze.remove(this);
             garage.hinausfahren();
             System.out.println("Auto " + meineNr + " ist rausgefahren");
-
         } else {
                 try {
                     wait();
