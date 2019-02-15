@@ -28,7 +28,7 @@ public class ProducerConsumerProblem {
 //        c.start();
         
         Vector<Auto> parkplaetze = new Vector();
-        Parkhaus pa = new Parkhaus(parkplaetze, 20);
+        Parkhaus pa = new Parkhaus(parkplaetze, 10);
         pa.start();
         for (int i = 0; i < 50; i++) {
             Auto a = new Auto(parkplaetze, pa);

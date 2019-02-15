@@ -28,10 +28,11 @@ public class Parkhaus extends Thread {
     }
 
     public void run() {
-        while (true) {            
+
+        while (true) { 
             System.out.println("Es sind noch " + verbleibende + " vorhanden!");
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Parkhaus.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -41,10 +42,12 @@ public class Parkhaus extends Thread {
         
     public void hineinfahren() {
         verbleibende--;
-        //notify();
     }
 
     public void hinausfahren() {
+        synchronized(parkplaetze){
         verbleibende++;
+        notify();
+        }
     }
 }

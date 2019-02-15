@@ -20,7 +20,6 @@ public class Auto extends Thread {
     private Vector<Auto> parklaetze;
     private Parkhaus garage;
     private int meineNr = 0;
-    private boolean rausgefahren = false;
 
     public Auto(Vector<Auto> parkplaetze, Parkhaus garage) {
         this.parklaetze = parkplaetze;
@@ -31,37 +30,31 @@ public class Auto extends Thread {
     }
 
     public void run() {
-        while (!rausgefahren) {
-            if (garage.getFreiePlätze() > 0) {
-                garage.hineinfahren();
-                parklaetze.add(this);
-                System.out.println("Auto " + meineNr + " ist eingefahren");
-                boolean geparkt = true;
-                while (geparkt) {
-                    try {
-                        Thread.sleep((long) (Math.random() * 20000 + 2000));
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Auto.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    geparkt = false;
-                }
-                parklaetze.remove(this);
-                garage.hinausfahren();
-                System.out.println("Auto " + meineNr + " ist rausgefahren");
-                rausgefahren = true;
-            } else {
+        if (parklaetze.size() < 5) {
+            garage.hineinfahren();
+            parklaetze.add(this);
+            System.out.println("Auto " + meineNr + " ist eingefahren");
+            boolean geparkt = true;
+            while (geparkt) {
+
                 try {
-                    //            try {
-//                wait();
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(Auto.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-                    Thread.sleep(1000);
+                    Thread.sleep((long) (Math.random() * 20000 + 2000));
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Auto.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                System.out.println("Auto " + meineNr + " wartet");
+                geparkt = false;
             }
+            parklaetze.remove(this);
+            garage.hinausfahren();
+            System.out.println("Auto " + meineNr + " ist rausgefahren");
+
+        } else {
+                try {
+                    wait();
+                } catch (InterruptedException ex) {
+
+            }
+            System.out.println("Auto " + meineNr + " wartet");
         }
     }
 }
