@@ -30,32 +30,22 @@ public class Auto extends Thread {
     }
 
     public void run() {
-        if (parklaetze.size() < 5) {
-            synchronized(parklaetze){
-            garage.hineinfahren();
+        while (true) {
+            garage.hineinfahren(meineNr);
             parklaetze.add(this);
             System.out.println("Auto " + meineNr + " ist eingefahren");
+            try {
+                Thread.sleep((long) (Math.random() * 10000 + 2000));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Auto.class.getName()).log(Level.SEVERE, null, ex);
             }
-            boolean geparkt = true;
-            while (geparkt) {
-
-                try {
-                    Thread.sleep((long) (Math.random() * 20000 + 2000));
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Auto.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                geparkt = false;
-            }
+            garage.hinausfahren(meineNr);
             parklaetze.remove(this);
-            garage.hinausfahren();
-            System.out.println("Auto " + meineNr + " ist rausgefahren");
-        } else {
-                try {
-                    wait();
-                } catch (InterruptedException ex) {
-
+            try {
+                Thread.sleep((long) (Math.random() * 20000 + 2000));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Auto.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("Auto " + meineNr + " wartet");
         }
     }
 }

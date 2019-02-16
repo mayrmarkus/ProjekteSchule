@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author Markus_Mayr
  */
-public class Parkhaus extends Thread {
+public class Parkhaus {
 
     private Vector<Auto> parkplaetze;
     private int verbleibende;
@@ -27,27 +27,25 @@ public class Parkhaus extends Thread {
         this.verbleibende = verbleibende;
     }
 
-    public void run() {
-
-        while (true) { 
-            System.out.println("Es sind noch " + verbleibende + " vorhanden!");
+    public synchronized void ausgabeFreiePlätze(){
+        System.out.println("Es sind noch " + verbleibende + " vorhanden!");
+    }
+        
+    public synchronized void hineinfahren(int nr) {
+        if (verbleibende == 0) {
+            System.out.println("Auto " + nr + " muss warten");
             try {
-                Thread.sleep(5000);
+                wait();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Parkhaus.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-    }
-    
-        
-    public void hineinfahren() {
+        }else
         verbleibende--;
     }
 
-    public void hinausfahren() {
-        synchronized(parkplaetze){
+    public synchronized void hinausfahren(int nr) {
         verbleibende++;
+        System.out.println("Auto " + nr + " ist rausgefahren");
         notify();
         }
     }
-}
