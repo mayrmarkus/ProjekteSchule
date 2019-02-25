@@ -9,6 +9,12 @@ package tekentante;
  *
  * @author Markus_Mayr
  */
-public class Kaeufer {
+public class Kaeufer extends Thread{
     
+    @Override
+    public void run(){
+        while (true) {            
+            
+        }
+    }
 }

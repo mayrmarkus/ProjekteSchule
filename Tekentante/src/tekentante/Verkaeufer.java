@@ -5,15 +5,20 @@
  */
 package tekentante;
 
+import java.util.Vector;
+
 /**
  *
  * @author Markus_Mayr
  */
 public class Verkaeufer extends Thread{
     
+    Vector<Kaeufer> queue;
+    
     @Override
     public void run(){
-        
+        while (true) {            
+            
+        }
     }
-    
 }
