@@ -15,7 +15,10 @@ public class Tekentante {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Verkaeufer v = new Verkaeufer();
+        v.start();
+        Kaeufer k = new Kaeufer();
+        k.start();
     }
-    
+
 }
