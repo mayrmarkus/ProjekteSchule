@@ -40,9 +40,5 @@ public class ProducerConsumerProblem {
                 Logger.getLogger(ProducerConsumerProblem.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
-        
     }
-    
 }
