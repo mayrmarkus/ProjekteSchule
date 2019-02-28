@@ -17,6 +17,11 @@ public class Verkaeufer extends Thread {
 
     Vector<Kaeufer> queue;
     int num = 0;
+    
+    public Verkaeufer(Vector v){
+		this.queue = v;
+	}
+
 
     @Override
     public void run() {
@@ -33,13 +38,18 @@ public class Verkaeufer extends Thread {
         }
     }
 
-    public synchronized void hineinfahren() {
+    public synchronized void anstellen() {
+    	if (num == 99) {
+			num = 0;
+		}
         num++;
-        System.out.println("Käufer " + num + " muss warten");
-        try {
-            wait();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Verkaeufer.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
+    
+    public int getNum(){
+    	return num;
+    }
+    
+    public int getQueueSize(){
+    	return queue.size();
     }
 }

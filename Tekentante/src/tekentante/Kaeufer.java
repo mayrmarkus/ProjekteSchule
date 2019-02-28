@@ -15,29 +15,33 @@ import java.util.logging.Logger;
  */
 public class Kaeufer extends Thread {
 
-    Vector<Kaeufer> queue;
-    int num = 0;
+	Vector<Kaeufer> queue;
+	Verkaeufer ver;
+	int num = 0;
+	
+	public Kaeufer(Vector v){
+		this.queue = v;
+	}
 
-    @Override
-    public void run() {
-        while (true) {
-            synchronized (queue) {
-                if (queue.size() > 0) {
-                    queue.add(this);
-                    System.out.println("Consumed: " + num + " Warten: " + queue.size());
-                    try {
-                        Thread.sleep((long) (Math.random() * 5000));
-                    } catch (InterruptedException ex) {
-
-                    }
-                } else {
-                    try {
-                        wait();
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Kaeufer.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-    }
+	@Override
+	public void run() {
+		while (true) {
+				if (queue.size() >= 0) {
+					ver.anstellen();
+					queue.add(this);
+					System.out.println("Nummer: " + num + " Warten: " + queue.size());
+					try {
+						Thread.sleep((long) (Math.random() * 5000));
+					} catch (InterruptedException ex) {
+					}
+				} else {
+					try {
+						wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				
+			}
+		}
+	}
 }
